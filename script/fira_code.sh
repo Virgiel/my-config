@@ -14,7 +14,7 @@ for type in Bold Light Medium Regular Retina; do
     fi;
 done
 
-if [ CHANGE ]; then
+if ( $CHANGE ) then
     echo "Refresh font cache"
     fc-cache -f
 fi

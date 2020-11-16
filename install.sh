@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Set up regolith and code"
-sudo add-apt-repository -y -n ppa:regolith-linux/release
-curl -S -s https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add
-sudo add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt -qq -y install code
-sudo apt -qq -y install regolith-desktop-standard
-sudo apt -q -y dist-upgrade
-sudo apt -qq -y autoremove
-
 echo "Set up cargo"
 ./script/rust.sh
 

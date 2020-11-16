@@ -1,12 +1,14 @@
 scrolling = "reverse"
-icons = "awesome5"
+icons = "awesome"
 
 [theme]
 name = "plain"
 
 # Colors (Gruvbox Material Dark Hard)
 [theme.overrides]
-separator = ""
+separator = " "
+separator_bg = "#202020"
+separator_fg = "#202020"
 critical_bg = "#202020"
 critical_fg = "#ea6962"
 good_bg = "#202020"
@@ -21,7 +23,7 @@ warning_fg = "#e78a4e"
 [[block]]
 block = "music"
 buttons = ["play", "next"]
-on_collapsed_click = "flatpak run com.spotify.Client"
+on_collapsed_click = "spotify --disable-gpu --disable-software-rasterizer"
 
 [[block]]
 block = "memory"
