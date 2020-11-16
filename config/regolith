@@ -12,7 +12,6 @@ i3-wm.bar.workspace.urgent.border.color: #202020
 i3-wm.bar.workspace.urgent.text.color: #ea6962
 i3-wm.font: pango:FiraCode
 i3-wm.bar.font: pango:FiraCode
-gnome.gtk.theme: Gruvbox-Material-Dark
 gnome.wallpaper: ~/.local/share/wallpaper/RobinBird.jpg
 St.font: FiraCode
 rofi.font: FiraCode 16
