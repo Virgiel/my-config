@@ -9,7 +9,9 @@ mkdir -p -v ~/.local/share/wallpaper
 cat ./wallpaper/RobinBird.jpg > ~/.local/share/wallpaper/RobinBird.jpg
 
 echo "Set up cargo"
-sudo apt-get -q install cargo
+sudo apt-get -q install curl
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Alternative: sudo apt-get cargo
 
 echo "Set up i3status-rs"
 cargo install -q --git https://github.com/greshake/i3status-rust i3status-rs
