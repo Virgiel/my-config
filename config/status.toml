@@ -1,5 +1,5 @@
 scrolling = "reverse"
-icons = "material"
+icons = "awesome5"
 
 [theme]
 name = "plain"
