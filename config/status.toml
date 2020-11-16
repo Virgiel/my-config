@@ -41,8 +41,9 @@ show_volume_when_muted = false
 
 [[block]]
 block = "battery"
-driver = "upower"
 format = "{percentage}% {time}"
+allow_missing = true
+hide_missing = true
 
 [[block]]
 block = "time"
