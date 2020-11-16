@@ -1,0 +1,50 @@
+scrolling = "reverse"
+icons = "material"
+
+[theme]
+name = "plain"
+
+# Colors (Gruvbox Material Dark Hard)
+[theme.overrides]
+separator = ""
+critical_bg = "#202020"
+critical_fg = "#ea6962"
+good_bg = "#202020"
+good_fg = "#a9b665"
+idle_bg = "#202020"
+idle_fg  = "#d4be98"
+info_bg = "#202020"
+info_fg = "#7daea3"
+warning_bg = "#202020"
+warning_fg = "#e78a4e"
+
+[[block]]
+block = "music"
+buttons = ["play", "next"]
+on_collapsed_click = "flatpak run com.spotify.Client"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{barchart} {utilization}% {frequency}GHz"
+
+[[block]]
+block = "sound"
+max_vol = 100
+show_volume_when_muted = false
+
+[[block]]
+block = "battery"
+driver = "upower"
+format = "{percentage}% {time}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
