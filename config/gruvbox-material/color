@@ -1,0 +1,16 @@
+#define color_base03   #202020
+#define color_base02   #2e2c2b
+#define color_base01   #3d3835
+#define color_base00   #514945
+#define color_base0    #ddc7a1
+#define color_base1    #d4de98
+#define color_base2    #c5b18d
+#define color_base3    #c5b18d
+#define color_yellow   #d8a657
+#define color_orange   #e78a4e
+#define color_red      #ea6962
+#define color_magenta  #ab6c7d
+#define color_violet   #d3869b
+#define color_blue     #7daea3
+#define color_cyan     #89b482
+#define color_green    #a9b482
