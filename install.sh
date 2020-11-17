@@ -13,11 +13,5 @@ sudo apt -qq -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev lib
 cargo install --git https://github.com/alacritty/alacritty --tag v0.6.0-rc2 
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ~/.cargo/bin/alacritty 50
 
-echo "Install cargo tools"
-cargo install bat procs ripgrep tokei hyperfine ytop nu
-
-echo "Install lf"
-curl -S -s -L https://github.com/gokcehan/lf/releases/download/r17/lf-linux-amd64.tar.gz | sudo tar -xz -C /usr/local/bin
-
 echo "Setup config"
 ./config.sh
