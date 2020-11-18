@@ -12,5 +12,8 @@ mkdir -p -v ~/.config/alacritty
 cat ./config/alacritty.yml > ~/.config/alacritty.yml
 cat ./config/regolith > ~/.config/regolith/Xresources
 sudo cp -r ./config/gruvbox-material /etc/regolith/styles
+mkdir -p -v ~/.themes ~/.icons
+cp -r ./gtk-theme ~/.themes/gruvbox-material
+cp -r ./gtk-icons ~/.icons/gruvbox-material
 regolith-look set gruvbox-material
 regolith-look refresh

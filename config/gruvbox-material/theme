@@ -1,5 +1,5 @@
-#define gtk_theme           Pop
-#define icon_theme          Pop_Icons
+#define gtk_theme           gruvbox-material
+#define icon_theme          gruvbox-material
 #define rofi_theme          /etc/regolith/styles/gruvbox-material/rofi.rasi
 #define theme_terminal_scrollbar never
 
