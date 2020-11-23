@@ -25,5 +25,7 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+# ~/.profile: executed by the command interpreter for login shells.
 
-export PATH="$HOME/.cargo/bin:$HOME/.cargo/bin:$PATH"
+MANPAGER="sh -c 'col -bx | bat -l man -p'"
+PATH="$HOME/.cargo/bin:$HOME/.cargo/bin:$PATH"
