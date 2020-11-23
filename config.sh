@@ -1,19 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-echo "Set up configs"
-./script/font.sh
-mkdir --parent --verbose ~/.local/share/wallpaper
-cat ./wallpaper/RobinBird.jpg > ~/.local/share/wallpaper/RobinBird.jpg
-cat ./config/profile > ~/.profile
-. ~/.profile
-mkdir -p -v ~/.config/i3
-cat ./config/status.toml > ~/.config/i3/status.toml
-mkdir -p -v ~/.config/alacritty
-cat ./config/alacritty.yml > ~/.config/alacritty.yml
-cat ./config/regolith > ~/.config/regolith/Xresources
-sudo cp -r ./config/gruvbox-material /etc/regolith/styles
-mkdir -p -v ~/.themes ~/.icons
-cp -r ./gtk-theme ~/.themes/gruvbox-material
-cp -r ./gtk-icons ~/.icons/gruvbox-material
-regolith-look set gruvbox-material
-regolith-look refresh
+echo "Copy nix configuration"
+cp ./configuration.nix /etc/nixos
+
+echo "Rebuild boot config"
+nixos-rebuild switch
+
+echo "Reboot to apply changes"

@@ -1,5 +1,0 @@
-#define typeface_bar_glyph  FiraCode 13
-#define typeface_wm         pango:FiraCode 13
-#define typeface_bar        pango:FiraCode 13, MaterialDesignIcons 13
-#define typeface_rofi       FiraCode 16
-#define typeface_terminal   FiraCode:pixelsize=16:antialias=true:autohint=true
