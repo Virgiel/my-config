@@ -1,2 +1,0 @@
-i3-wm.bar.status_command: ~/.cargo/bin/i3status-rs ~/.config/i3/status.toml
-gnome.wallpaper: ~/.local/share/wallpaper/RobinBird.jpg

@@ -1,5 +1,0 @@
-set noanchorfind
-set hidden
-set incsearch
-set previewer bat
-set shell bash

@@ -1,0 +1,1 @@
+# TODO image/* chafa -c 256 --fill=block --symbols=block -s 80x"${HEIGHT}" "${FILE_PATH}"
