@@ -29,8 +29,8 @@
 
   fonts.fonts = with pkgs; [
     fira-code # Pretty monospace font with ligature
-    material-design-icons # Pretty icons for status bar
-    font-awesome-ttf
+    font-awesome-ttf # Pretty icons for status bar
+    source-sans-pro # Pretty serif font for the ui
   ];
 
   console = {
@@ -149,7 +149,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu
+        rofi
         i3status
         i3lock
         i3blocks

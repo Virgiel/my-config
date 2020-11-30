@@ -1,0 +1,8 @@
+configuration {
+  modi: "run,drun";
+  font: "FiraCode 14";
+  show-icons: true;
+  terminal: "alacritty";
+  show-match: true;
+}
+@theme "theme"

@@ -28,5 +28,10 @@ echo "Link i3 config"
 link ./config/i3/status.toml ~/.config/i3/status.toml
 link ./config/i3/config ~/.config/i3/config
 
+echo "Link rofi config"
+dir ~/.config/rofi
+link ./config/rofi/config.rasi ~/.config/rofi/config.rasi
+link ./config/rofi/theme.rasi ~/.config/rofi/theme.rasi
+
 echo "Reload i3"
 i3-msg reload
