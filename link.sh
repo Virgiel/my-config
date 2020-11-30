@@ -1,33 +1,32 @@
 #!/usr/bin/env sh
 
-echo "Link wallpaper"
-mkdir --parent --verbose ~/.local/share/wallpaper
-ln -f ./wallpaper/RobinBird.jpg ~/.background-image
+dir() {
+    mkdir --parent --verbose $1
+}
+link() {
+    ln --force $1 $2
+}
+task() {
+    echo $1
+    dir $2
+    link $3 $4
+}
 
-echo "Link alacritty config"
-mkdir --parent --verbose ~/.config
-ln -f ./config/alacritty.yml ~/.config/alacritty.yml
 
-echo "Link ion config"
-mkdir --parent --verbose ~/.config/ion
-ln -f ./config/ion ~/.config/ion/initrc
+echo "Link wallpaper" 
+link ./wallpaper/RobinBird.jpg ~/.background-image
 
-echo "Link lf config"
-mkdir --parent --verbose ~/.config/lf
-ln -f ./config/lf ~/.config/lf/lfrc
+task "Link alacritty config" ~/.config ./config/alacritty.yml ~/.config/alacritty.yml
+task "Link ion config" ~/.config/ion ./config/ion ~/.config/ion/initrc
+task "Link lf config" ~/.config/lf ./config/lf ~/.config/lf/lfrc
+task "Link pistol config" ~/.config/pistol ./config/pistol ~/.config/pistol/pistol.conf
 
-echo "Link pistol config"
-mkdir --parent --verbose ~/.config/pistol
-ln -f ./config/pistol ~/.config/pistol/pistol.conf
-
-echo "Link bat config"
-mkdir --parent --verbose ~/.config/bat/themes
-ln -f ./config/bat/config ~/.config/bat/config
+task "Link bat config" ~/.config/bat/themes ./config/bat/config ~/.config/bat/config
 bat cache --build
 
 echo "Link i3 config"
-ln -f ./config/i3/status.toml ~/.config/i3/status.toml
-ln -f ./config/i3/config ~/.config/i3/config
+link ./config/i3/status.toml ~/.config/i3/status.toml
+link ./config/i3/config ~/.config/i3/config
 
 echo "Reload i3"
 i3-msg reload
