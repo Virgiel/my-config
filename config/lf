@@ -3,7 +3,7 @@ set hidden
 set incsearch
 set previewer pistol
 
-map i $pistol $f | $PAGER
+map i $pistol "$f" | $PAGER
 
 cmd paste &{{
     load=$(lf -remote 'load')

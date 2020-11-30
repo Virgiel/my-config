@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-./font.sh
-
 echo "Link wallpaper"
 mkdir --parent --verbose ~/.local/share/wallpaper
 ln -f ./wallpaper/RobinBird.jpg ~/.background-image
