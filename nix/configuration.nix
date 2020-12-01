@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./font.nix # Font configuration
     ];
 
   nix.autoOptimiseStore = true;
@@ -26,12 +27,6 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp0s3.useDHCP = true;
-
-  fonts.fonts = with pkgs; [
-    fira-code # Pretty monospace font with ligature
-    font-awesome-ttf # Pretty icons for status bar
-    source-sans-pro # Pretty serif font for the ui
-  ];
 
   console = {
     font = "FiraCode";
@@ -168,7 +163,11 @@
     rustup
     rustc
     # Rusty tools
-    bat
+    bat # Better cat
+    exa # Better lf
+    fd # Better find
+    (callPackage ./btm.nix { }) # Better top
+    # hexy # Hex visualizer To build manually
     procs
     ripgrep
     tokei
@@ -176,11 +175,12 @@
     bandwhich
     ion
     nitrogen
+    neofetch
     # Common apps
     vscode
     spotify
     firefox
-    # ----- Terminal fil$e explorer ----- #
+    # ----- Terminal file explorer ----- #
     lf # File explorer
     pistol # File previewer
     chafa # Image previewer
