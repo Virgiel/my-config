@@ -13,10 +13,6 @@ inputbar {
   padding: 6px 0;
   children: [prompt, textbox-colon, entry];
 }
-textbox {
-  background-color: #202020;
-  border-color: #3d3835;
-}
 listview {
   cycle: false;
   dynamic: true;

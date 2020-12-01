@@ -164,9 +164,11 @@
     neovim
     git
     nixpkgs-fmt
+    cargo
+    rustup
+    rustc
     # Rusty tools
     bat
-    ytop
     procs
     ripgrep
     tokei
