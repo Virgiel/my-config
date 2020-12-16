@@ -33,8 +33,5 @@ cursor:
   style: Beam
   vi_mode_style: Underline
 
-shell:
-  program: ion
-
 key_bindings:
   - { key: Space, mods: Alt, action: ToggleViMode }

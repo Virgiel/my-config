@@ -154,15 +154,19 @@
     };
   };
 
-
   environment.systemPackages = with pkgs; [
     neovim
+    fzf
     git
     nixpkgs-fmt
+    # Rust dev
     cargo
     rustup
-    rustc
+    # JS dev
+    deno
+    nodejs
     # Rusty tools
+    nushell # Better shell
     bat # Better cat
     exa # Better lf
     fd # Better find
@@ -173,9 +177,9 @@
     tokei
     hyperfine
     bandwhich
-    ion
-    nitrogen
+    nitrogen # 
     neofetch
+    zenith # Ressources usage
     # Common apps
     vscode
     spotify
@@ -186,6 +190,10 @@
     chafa # Image previewer
   ];
 
+  environment.variables = {
+    EDITOR = "nvim";
+    SHELL = "nu";
+  };
 
   # Enable sound.
   sound.enable = true;
@@ -197,7 +205,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.virgiel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "netdev" ]; # Enable ‘sudo’ for the user.
   };
 
   system.stateVersion = "20.09";

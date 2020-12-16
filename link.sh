@@ -16,22 +16,21 @@ task() {
 echo "Link wallpaper" 
 link ./wallpaper/RobinBird.jpg ~/.background-image
 
-task "Link alacritty config" ~/.config ./config/alacritty.yml ~/.config/alacritty.yml
-task "Link ion config" ~/.config/ion ./config/ion ~/.config/ion/initrc
-task "Link lf config" ~/.config/lf ./config/lf ~/.config/lf/lfrc
-task "Link pistol config" ~/.config/pistol ./config/pistol ~/.config/pistol/pistol.conf
-
-task "Link bat config" ~/.config/bat/themes ./config/bat/config ~/.config/bat/config
+task "Link alacritty config" ~/.config ./dotfiles/alacritty.yml ~/.config/alacritty.yml
+task "Link lf config" ~/.config/lf ./dotfiles/lf ~/.config/lf/lfrc
+task "Link pistol config" ~/.config/pistol ./dotfiles/pistol ~/.config/pistol/pistol.conf
+task "Link neovim config" ~/.config/nvim ./dotfiles/nvim.vim ~/.config/nvim/init.vim
+task "Link bat config" ~/.config/bat/themes ./dotfiles/bat/config ~/.config/bat/config
 bat cache --build
 
 echo "Link i3 config"
-link ./config/i3/status.toml ~/.config/i3/status.toml
-link ./config/i3/config ~/.config/i3/config
+link ./dotfiles/i3/status.toml ~/.config/i3/status.toml
+link ./dotfiles/i3/config ~/.config/i3/config
 
 echo "Link rofi config"
 dir ~/.config/rofi
-link ./config/rofi/config.rasi ~/.config/rofi/config.rasi
-link ./config/rofi/theme.rasi ~/.config/rofi/theme.rasi
+link ./dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi
+link ./dotfiles/rofi/theme.rasi ~/.config/rofi/theme.rasi
 
 echo "Reload i3"
 i3-msg reload
