@@ -193,6 +193,8 @@
   environment.variables = {
     EDITOR = "nvim";
     SHELL = "nu";
+    MANPAGER = "nvim +Man!";
+    MANWIDHT="999";
   };
 
   # Enable sound.
