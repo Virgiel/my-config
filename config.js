@@ -69,7 +69,7 @@ for (const config of configMetadata.config) {
 
 for (const script of configMetadata.script) {
   console.log(color.magenta(`Run ${script.title}`));
-  Deno.run(script);
+  await Deno.run(script).status();
 }
 
 console.log(color.green('Configuration successfully installed'));

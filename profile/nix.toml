@@ -17,7 +17,7 @@ path = "../config/rofi-config.rasi"
 unixpath = "rofi/config.rasi"
 
 [[config]]
-title = "Rodi theme"
+title = "Rofi theme"
 path = "../config/rofi-theme.rasi"
 unixpath = "rofi/theme.rasi"
 
