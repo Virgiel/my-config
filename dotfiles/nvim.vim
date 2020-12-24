@@ -1,5 +1,5 @@
 set nocompatible " Disable compatibility to old-time vi
-set autoread      " Automatically load changed files
+set autoread     " Automatically load changed files
 set noswapfile   " Disable swapfile
 set number       " Display line number
 set number       " Add line number

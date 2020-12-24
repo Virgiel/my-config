@@ -1,0 +1,28 @@
+title ="Windows 10 config"
+
+[[config]]
+title = "LF file manager"
+raw = '''
+set hidden
+set incsearch
+set shell nu
+
+map e $nvim %f%
+map w $nu
+
+map <enter> shell
+'''
+winpath = "Local/lf/lfrc"
+unixpath = "lf/lfrc"
+
+[[config]]
+title = "NeoVim text editor"
+path = "../dotfiles/nvim.vim"
+winpath = "Local/nvim/init.vim"
+unixpath = "nvim/init.vim"
+
+[[config]]
+title = "Alacritty terminal emulator"
+path = "../dotfiles/alacritty.yml"
+winpath = "Roaming/alacritty/alacritty.yml"
+unixpath = "alacritty/alacritty.yml"
