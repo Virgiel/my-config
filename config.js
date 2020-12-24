@@ -4,11 +4,25 @@
  */
 
 import { parse } from 'https://deno.land/std@0.82.0/encoding/toml.ts';
-import * as path from 'https://deno.land/std@0.82.0/path/mod.ts';
+import { join, dirname } from 'https://deno.land/std@0.82.0/path/mod.ts';
 import * as color from 'https://deno.land/std@0.82.0/fmt/colors.ts';
 import { ensureFileSync } from 'https://deno.land/std@0.82.0/fs/mod.ts';
 
+// Get os specific properties
 const { os } = Deno.build;
+let osPath; // Which path to use
+let destDir; // Which dir to write to
+if (os === 'windows') {
+  osPath = 'winpath';
+  destDir = 'C:/Users/antoi/AppData';
+} else if (os === 'linux') {
+  osPath = 'unixpath';
+  destDir = join(Deno.env.get('HOME'), '.config');
+} else {
+  throw `Unsupported os ${os}`;
+}
+
+// Parse config files
 
 if (Deno.args.length == 0) {
   throw 'You must a config file path as argument';
@@ -16,39 +30,46 @@ if (Deno.args.length == 0) {
 
 const rootConfigFile = Deno.args[0];
 const configMetadata = parse(Deno.readTextFileSync(rootConfigFile));
-const fromDir = path.dirname(rootConfigFile);
+const configDir = dirname(rootConfigFile);
 
 console.log(color.bold(color.blue(`Start installing ${configMetadata.title}`)));
 
-// Get os specific properties
-
-let osPath; // Which path to use
-let toDir; // Which dir to write to
-if (os === 'windows') {
-  osPath = 'winpath';
-  toDir = 'C:/Users/antoi/AppData';
-} else if (os === 'linux') {
-  osPath = 'unixpath';
-  toDir = path.join(Deno.env.get('HOME'), '.config');
-} else {
-  throw `Unsupported os ${os}`;
+if (!configMetadata.config) {
+  configMetadata.config = [];
 }
 
-for (const item of configMetadata.config) {
-  console.log(color.magenta(`Setup ${item.title}`));
+if (!configMetadata.script) {
+  configMetadata.script = [];
+}
+
+for (const path of configMetadata.import) {
+  const importMetadata = parse(Deno.readTextFileSync(join(configDir, path)));
+  console.log(color.gray(' - ') + color.blue(importMetadata.title));
+  configMetadata.config.push(...importMetadata.config);
+}
+
+for (const config of configMetadata.config) {
+  console.log(color.magenta(`Setup ${config.title}`));
   let configData = '';
-  if (item.raw) {
-    configData = item.raw;
-  } else if (item.path) {
-    configData = Deno.readTextFileSync(path.join(fromDir, item.path));
+  if (config.raw) {
+    configData = config.raw;
+  } else if (config.path) {
+    configData = Deno.readTextFileSync(join(configDir, config.path));
   } else {
-    throw `Not config data in ${item.title}`;
+    throw `Not config data in ${config.title}`;
   }
 
-  const toPath = item[osPath];
-  const complete = path.join(toDir, toPath);
+  const toPath = config[osPath];
+  const path = join(destDir, toPath);
   // Create file an parent firs if necessary
-  ensureFileSync(complete);
+  ensureFileSync(path);
   // Write config in config file
-  Deno.writeTextFileSync(complete, configData);
+  Deno.writeTextFileSync(path, configData);
 }
+
+for (const script of configMetadata.script) {
+  console.log(color.magenta(`Run ${script.title}`));
+  Deno.run(script);
+}
+
+console.log(color.green('Configuration successfully installed'));

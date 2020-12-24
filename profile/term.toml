@@ -1,4 +1,4 @@
-title ="Windows 10 config"
+title = "Terminal configuration"
 
 [[config]]
 title = "LF file manager"
@@ -17,22 +17,18 @@ unixpath = "lf/lfrc"
 
 [[config]]
 title = "NeoVim text editor"
-path = "../dotfiles/nvim.vim"
+path = "../config/nvim.vim"
 winpath = "Local/nvim/init.vim"
 unixpath = "nvim/init.vim"
 
 [[config]]
 title = "Alacritty terminal emulator"
-path = "../dotfiles/alacritty.yml"
+path = "../config/alacritty.yml"
 winpath = "Roaming/alacritty/alacritty.yml"
 unixpath = "alacritty.yml"
 
 [[config]]
 title = "Nu shell"
-raw = '''
-edit_mode = "vi"
-skip_welcome_message = "true"
-table_mode = "light"
-'''
-winpath = "Roaming/nushell/nu/config.toml"
+path = "../config/nu.toml"
+winpath = "Roaming/nushell/nu/config/config.toml"
 unixpath = "nu/config.toml"
