@@ -25,4 +25,14 @@ unixpath = "nvim/init.vim"
 title = "Alacritty terminal emulator"
 path = "../dotfiles/alacritty.yml"
 winpath = "Roaming/alacritty/alacritty.yml"
-unixpath = "alacritty/alacritty.yml"
+unixpath = "alacritty.yml"
+
+[[config]]
+title = "Nu shell"
+raw = '''
+edit_mode = "vi"
+skip_welcome_message = "true"
+table_mode = "light"
+'''
+winpath = "Roaming/nushell/nu/config.toml"
+unixpath = "nu/config.toml"
