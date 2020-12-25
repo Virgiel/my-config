@@ -6,7 +6,7 @@
 import { parse } from 'https://deno.land/std@0.82.0/encoding/toml.ts';
 import { join, dirname } from 'https://deno.land/std@0.82.0/path/mod.ts';
 import * as color from 'https://deno.land/std@0.82.0/fmt/colors.ts';
-import { ensureFileSync } from 'https://deno.land/std@0.82.0/fs/mod.ts';
+import { ensureLinkSync } from 'https://deno.land/std@0.82.0/fs/mod.ts';
 
 // Get os specific properties
 const { os } = Deno.build;
@@ -34,6 +34,10 @@ const configDir = dirname(rootConfigFile);
 
 console.log(color.bold(color.blue(`Start installing ${configMetadata.title}`)));
 
+if (!configMetadata.import) {
+  configMetadata.import = [];
+}
+
 if (!configMetadata.config) {
   configMetadata.config = [];
 }
@@ -49,22 +53,18 @@ for (const path of configMetadata.import) {
 }
 
 for (const config of configMetadata.config) {
-  console.log(color.magenta(`Setup ${config.title}`));
-  let configData = '';
-  if (config.raw) {
-    configData = config.raw;
-  } else if (config.path) {
-    configData = Deno.readTextFileSync(join(configDir, config.path));
+  console.log(color.magenta(`Link ${config.title}`));
+  let srcPath = '';
+  if (config.file) {
+    srcPath = join(configDir, config.file);
   } else {
-    throw `Not config data in ${config.title}`;
+    throw `Not file for "${config.title}"`;
   }
 
   const toPath = config[osPath];
-  const path = join(destDir, toPath);
-  // Create file an parent firs if necessary
-  ensureFileSync(path);
+  const destPath = join(destDir, toPath);
   // Write config in config file
-  Deno.writeTextFileSync(path, configData);
+  ensureLinkSync(srcPath, destPath);
 }
 
 for (const script of configMetadata.script) {

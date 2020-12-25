@@ -2,33 +2,24 @@ title = "Terminal configuration"
 
 [[config]]
 title = "LF file manager"
-raw = '''
-set hidden
-set incsearch
-set shell nu
-
-map e $nvim %f%
-map w $nu
-
-map <enter> shell
-'''
+file = "../config/lf.config"
 winpath = "Local/lf/lfrc"
 unixpath = "lf/lfrc"
 
 [[config]]
 title = "NeoVim text editor"
-path = "../config/nvim.vim"
+file = "../config/nvim.vim"
 winpath = "Local/nvim/init.vim"
 unixpath = "nvim/init.vim"
 
 [[config]]
 title = "Alacritty terminal emulator"
-path = "../config/alacritty.yml"
+file = "../config/alacritty.yml"
 winpath = "Roaming/alacritty/alacritty.yml"
 unixpath = "alacritty.yml"
 
 [[config]]
 title = "Nu shell"
-path = "../config/nu.toml"
+file = "../config/nu.toml"
 winpath = "Roaming/nushell/nu/config/config.toml"
 unixpath = "nu/config.toml"

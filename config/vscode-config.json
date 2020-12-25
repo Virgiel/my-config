@@ -1,0 +1,144 @@
+{
+  "git.autofetch": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.linkedEditing": true,
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 0,
+  "material-icon-theme.saturation": 0.8,
+  "material-icon-theme.hidesExplorerArrows": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.darkWorkbench": "flat",
+  "gruvboxMaterial.darkCursor": "orange",
+  "gruvboxMaterial.italicKeywords": true,
+  "explorer.incrementalNaming": "smart",
+  "explorer.openEditors.visible": 0,
+  "files.autoSave": "afterDelay",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 1,
+  "workbench.editor.showTabs": false,
+  "workbench.editor.limit.perEditorGroup": true,
+  "editor.formatOnType": true,
+  "workbench.activityBar.visible": true,
+  "workbench.statusBar.visible": true,
+  "cSpell.language": "fr,fr-FR,en-US",
+  "cSpell.enableFiletypes": ["pseudocode", "svelte", "toml", "vue"],
+  "gruvboxMaterial.lightContrast": "hard",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.suggestSelection": "first",
+  "java.semanticHighlighting.enabled": true,
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.fontFamily": "Fira Code",
+  "i18n-ally.displayLanguage": "fr",
+  "prettier.arrowParens": "avoid",
+  "prettier.singleQuote": true,
+  "gruvboxMaterial.colorfulSyntax": true,
+  "prettier.proseWrap": "always",
+  "editor.accessibilitySupport": "off",
+  "grammarly.autoActivate": false,
+  "markdown.extension.toc.levels": "2..6",
+  "extensions.autoUpdate": false,
+  "git.enableSmartCommit": true,
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\antoi\\tools\\Neovim\\bin\\nvim.exe",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\antoi\\tools\\settings.vim",
+  "whichkey.sortOrder": "alphabetically",
+  "whichkey.bindings": [
+    {
+      "key": ";",
+      "name": "commands",
+      "type": "command",
+      "command": "workbench.action.showCommands"
+    },
+    {
+      "key": "/",
+      "name": "comment",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": "<C-/>"
+    },
+    {
+      "key": "e",
+      "name": "Toggle Explorer",
+      "type": "command",
+      "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+      "key": "h",
+      "name": "Split Horizontal",
+      "type": "command",
+      "command": "workbench.action.splitEditorDown"
+    },
+    {
+      "key": "n",
+      "name": "highlight",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": ":noh<CR>"
+    },
+    {
+      "key": "f",
+      "name": "files",
+      "type": "command",
+      "command": "workbench.action.quickOpen"
+    },
+    {
+      "key": "p",
+      "name": "projects",
+      "type": "command",
+      "command": "workbench.action.quickOpenRecent"
+    },
+    {
+      "key": "$",
+      "name": "Toogle Terminal",
+      "type": "command",
+      "command": "workbench.action.terminal.focus"
+    },
+    {
+      "key": "v",
+      "name": "Split Vertical",
+      "type": "command",
+      "command": "workbench.action.splitEditor"
+    },
+    {
+      "key": "x",
+      "name": "Close editor group",
+      "type": "command",
+      "command": "workbench.action.closeEditorsInGroup"
+    },
+    {
+      "key": "X",
+      "name": "Close all editor groups",
+      "type": "command",
+      "command": "workbench.action.closeAllGroups"
+    },
+    {
+      "key": "z",
+      "name": "Toggle zen mode",
+      "type": "command",
+      "command": "workbench.action.toggleZenMode"
+    }
+  ],
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "clangd.path": "c:\\Users\\antoi\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\10.0.0\\clangd_10.0.0\\bin\\clangd.exe",
+  "extensions.ignoreRecommendations": true,
+  "java.refactor.renameFromFileExplorer": "autoApply",
+  "python.languageServer": "Pylance",
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkZpcmEgQ29kZVwiLFwidXJsXCI6XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9RmlyYStDb2RlXCJ9XSxcImxpYnJhcmllc1wiOlwiZ2VuZXJhbFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiNkM4RUJGXCIsXCJENzlCMDBcIixcIjk5OTk5OVwiLFwiQjNCM0IzXCIsXCI0RDRENERcIixcIjY2NjY2NlwiLFwiMzMzMzMzXCIsXCI4MkIzNjZcIixcIjJBMkEyQVwiLFwiRkVGRUZFXCIsXCJmNWY1ZjVcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "hediet.vscode-drawio.customFonts": ["Fira Code"],
+  "hediet.vscode-drawio.codeLinkActivated": false,
+  "stylelint.packageManager": "pnpm",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

@@ -1,3 +1,6 @@
+shell:
+  program: nu
+
 font:
   normal:
     family: Fira Code

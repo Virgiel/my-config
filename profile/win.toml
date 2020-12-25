@@ -1,2 +1,2 @@
 title = "Windows 10 configuration"
-import = ["./term.toml"]
+import = ["term.toml", "vscode.toml"]
