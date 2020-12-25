@@ -63,7 +63,6 @@ for (const config of configMetadata.config) {
 
   const toPath = config[osPath];
   const destPath = join(destDir, toPath);
-  // Write config in config file
   ensureLinkSync(srcPath, destPath);
 }
 
