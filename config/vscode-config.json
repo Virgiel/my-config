@@ -50,7 +50,6 @@
   "extensions.autoUpdate": false,
   "git.enableSmartCommit": true,
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\antoi\\tools\\Neovim\\bin\\nvim.exe",
-  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\antoi\\tools\\settings.vim",
   "whichkey.sortOrder": "alphabetically",
   "whichkey.bindings": [
     {
@@ -68,9 +67,9 @@
     },
     {
       "key": "e",
-      "name": "Toggle Explorer",
+      "name": "Focus file explorer",
       "type": "command",
-      "command": "workbench.action.toggleSidebarVisibility"
+          "command": "workbench.view.explorer"
     },
     {
       "key": "h",
@@ -79,27 +78,20 @@
       "command": "workbench.action.splitEditorDown"
     },
     {
-      "key": "n",
-      "name": "highlight",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":noh<CR>"
-    },
-    {
       "key": "f",
-      "name": "files",
+      "name": "Focus file finder",
       "type": "command",
       "command": "workbench.action.quickOpen"
     },
     {
       "key": "p",
-      "name": "projects",
+      "name": "Switch project",
       "type": "command",
       "command": "workbench.action.quickOpenRecent"
     },
     {
       "key": "$",
-      "name": "Toogle Terminal",
+      "name": "Focus terminal",
       "type": "command",
       "command": "workbench.action.terminal.focus"
     },
@@ -130,7 +122,6 @@
   ],
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "clangd.path": "c:\\Users\\antoi\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\10.0.0\\clangd_10.0.0\\bin\\clangd.exe",
-  "extensions.ignoreRecommendations": true,
   "java.refactor.renameFromFileExplorer": "autoApply",
   "python.languageServer": "Pylance",
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkZpcmEgQ29kZVwiLFwidXJsXCI6XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9RmlyYStDb2RlXCJ9XSxcImxpYnJhcmllc1wiOlwiZ2VuZXJhbFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiNkM4RUJGXCIsXCJENzlCMDBcIixcIjk5OTk5OVwiLFwiQjNCM0IzXCIsXCI0RDRENERcIixcIjY2NjY2NlwiLFwiMzMzMzMzXCIsXCI4MkIzNjZcIixcIjJBMkEyQVwiLFwiRkVGRUZFXCIsXCJmNWY1ZjVcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
@@ -140,5 +131,14 @@
   "workbench.list.automaticKeyboardNavigation": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vscode-neovim.useWSL": true,
+  "vscode-neovim.neovimExecutablePaths.linux": "~/nvim.appimage",
+  "vscode-neovim.logOutputToConsole": true
 }

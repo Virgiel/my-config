@@ -23,3 +23,9 @@ title = "Nu shell"
 file = "../config/nu.toml"
 winpath = "Roaming/nushell/nu/config/config.toml"
 unixpath = "nu/config.toml"
+
+[[config]]
+title = "Bat cat with syntax highlighting"
+file = "../config/bat.config"
+winpath = "Roaming/bat/config"
+unixpath = "bat/config"

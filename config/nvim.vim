@@ -16,19 +16,29 @@ set smartcase    " Override 'ignorecase' when case are used
 set gdefault     " Search globally by default
 
 " ----- Better identation ----- "
-set copyindent
-set smarttab    
-set autoindent
-set smartindent
+set copyindent   " TODO
+set smarttab     " TODO
+set autoindent   " TODO
+set smartindent  " TODO
 
-" ----- Useful shortcut ----- "
-nnoremap H ^ " Move to the start of line
-nnoremap L $ " Move to the end of line 
-nnoremap K H " Move to first line of screen 
+" ----- Common shortcut ----- "
+nnoremap H ^     " Move to the start of line
+nnoremap L $     " Move to the end of line 
+nnoremap K H     " Move to first line of screen 
 nnoremap U <C-r> " Redo
 
 if exists('g:vscode')
+  " Better Navigation
+  nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
+  xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
+  nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> xnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+  xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+  nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
+  xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
+  " Connect which key extension
+  nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+  xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 else 
   " ----- Start of plugin managment ----- "
   call plug#begin() 
@@ -97,5 +107,4 @@ else
 
   " Exit terminal mode with Esc
   tmap <Esc> <C-><C-n>
-
 endif
