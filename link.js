@@ -53,7 +53,6 @@ for (const item of config.config ?? []) {
 
   const toPath = item[osPath];
   const destPath = join(destDir, toPath);
-  // Write config in config file
   ensureLinkSync(srcPath, destPath);
 }
 

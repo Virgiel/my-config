@@ -1,24 +1,24 @@
 title = "NixOs configuration"
-import = ["./term.toml"]
+import = ["term.toml", "vscode.toml"]
 
 [[config]]
 title = "i3 window manager"
-path = "../config/i3.config"
+file = "../config/i3.config"
 unixpath = "i3/config"
 
 [[config]]
 title = "i3 status bar"
-path = "../config/i3status.toml"
+file = "../config/i3status.toml"
 unixpath = "i3/status.toml"
 
 [[config]]
 title = "Rofi config"
-path = "../config/rofi-config.rasi"
+file = "../config/rofi-config.rasi"
 unixpath = "rofi/config.rasi"
 
 [[config]]
 title = "Rofi theme"
-path = "../config/rofi-theme.rasi"
+file = "../config/rofi-theme.rasi"
 unixpath = "rofi/theme.rasi"
 
 [[script]]
