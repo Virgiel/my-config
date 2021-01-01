@@ -1,2 +1,29 @@
-title = "Windows 10 configuration"
+title = "windows 10 configuration"
 import = ["term.toml", "vscode.toml"]
+
+[install]
+dir = "tools"
+copy = [
+    "https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13.exe",
+]
+go = [
+    "github.com/gokcehan/lf@latest",
+    "github.com/junegunn/fzf@latest",
+    "github.com/doronbehar/pistol@latest",
+]
+
+[[install.unzip]]
+url = "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip"
+root = "nvim"
+
+[[install.unzip]]
+url = "https://sqlite.org/2020/sqlite-tools-win32-x86-3340000.zip"
+flatten = true
+
+[[install.unzip]]
+url = "https://nmap.org/dist/nmap-7.91-win32.zip"
+root = "nmap"
+
+[install.cargo]
+crate = ["nu", "bottom", "hyperfine"]
+git = ["https://github.com/virgiel/ss"]
