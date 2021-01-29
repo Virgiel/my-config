@@ -1,16 +1,21 @@
 title = "windows 10 configuration"
-import = ["term.toml", "vscode.toml"]
+import = ["term.toml", "vscode.toml", "desktop.toml"]
 
 [install]
 dir = "tools"
-copy = [
-    "https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13.exe",
-]
 go = [
     "github.com/gokcehan/lf@latest",
     "github.com/junegunn/fzf@latest",
     "github.com/doronbehar/pistol@latest",
 ]
+
+[[install.copy]]
+url = "https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13.exe"
+name = "rufus.exe"
+
+[[install.copy]]
+url = "https://github.com/alacritty/alacritty/releases/download/v0.7.0/Alacritty-v0.7.0-portable.exe"
+name = "alacritty.exe"
 
 [[install.unzip]]
 url = "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip"
@@ -24,6 +29,10 @@ flatten = true
 url = "https://nmap.org/dist/nmap-7.91-win32.zip"
 root = "nmap"
 
+[[install.unzip]]
+url = "https://github.com/Genymobile/scrcpy/releases/download/v1.17/scrcpy-win64-v1.17.zip"
+root = "scrcpy"
+
 [install.cargo]
 crate = ["nu", "bottom", "hyperfine"]
-git = ["https://github.com/virgiel/ss"]
+git = ["https://github.com/virgiel/ss", "https://github.com/Kethku/neovide"]

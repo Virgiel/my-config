@@ -32,12 +32,12 @@
   },
   {
     "key": "alt+enter",
-    "command": "editor.action.quickFix",
+    "command": "keyboard-quickfix.openQuickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
   {
     "key": "alt+enter",
-    "command": "problems.action.showQuickFixes",
+    "command": "keyboard-quickfix.openQuickFix",
     "when": "problemFocus"
   },
   /* ----- List Navigation ----- */
@@ -101,7 +101,7 @@
     "command": "list.toggleKeyboardNavigation",
     "when": "listFocus && inputFocus && listSupportsKeyboardNavigation"
   },
-  /* ----- File Explorer Navihation ----- */
+  /* ----- File Explorer Navigation ----- */
   {
     "key": "r",
     "command": "renameFile",
@@ -209,9 +209,4 @@
     "command": "editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
-  {
-    "key": "f2",
-    "command": "-editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-  }
 ]

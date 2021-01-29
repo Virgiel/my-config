@@ -37,10 +37,11 @@ if (config.install) {
   const path = join(home, config.install.dir);
   await ensureDir(path);
 
-  for (const url of config.install.copy ?? []) {
+  for (const item of config.install.copy ?? []) {
     try {
-      print(color.magenta(`Copy file ${fileName(url)} `));
-      await copy(url, path);
+      const name = item.name ?? fileName(item.url);
+      print(color.magenta(`Copy file ${name} `));
+      await copy(item.url, name, path);
       println(color.green(`OK`));
     } catch (error) {
       println(color.red(`ERR\n${error}`));
@@ -125,10 +126,9 @@ async function check(cmd) {
 }
 
 /** Copy a file fetched from @url to @dist */
-async function copy(url, dist) {
-  const filename = fileName(url);
+async function copy(url, name, dist) {
   const content = await fetchAsArray(url);
-  await Deno.writeFile(join(dist, filename), content);
+  await Deno.writeFile(join(dist, name), content);
 }
 
 /** Unzip files fetched from @url to @dist */

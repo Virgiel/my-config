@@ -7,6 +7,7 @@ set mouse=a      " Mouse support
 set cc=80        " Set a 80 columb border for good coding style
 set showcmd      " Show when leader key is pressed
 set wildmenu     " Add command completion 
+set clipboard+=unnamedplus " Always us the system clipboad
 
 " ----- Better search ----- "
 set hlsearch     " Highlight all search match
@@ -27,15 +28,21 @@ nnoremap L $     " Move to the end of line
 nnoremap K H     " Move to first line of screen 
 nnoremap U <C-r> " Redo
 
+if has('win32')
+  set shell=cmd.exe "Prevent weird path handling bugs
+endif
+
 if exists('g:vscode')
-  " Better Navigation
+  " Editor Navigation
   nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
   xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
-  nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> xnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+  nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
+  xnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
+  nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
   xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
-
+      
   " Connect which key extension
   nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
   xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
@@ -80,7 +87,7 @@ else
 
   " Window and tab creation
   nnoremap <silent> <Space>t :tabedit<CR>
-  nnoremap <silent> <Space>b :split<CR>
+  nnoremap <silent> <Space>h :split<CR>
   nnoremap <silent> <Space>v :vsplit<CR>
   nnoremap <silent> <Space>x :q<CR>
   set splitright

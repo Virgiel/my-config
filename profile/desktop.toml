@@ -1,0 +1,7 @@
+title = "Common desktop configuration"
+
+[[config]]
+title = "Vieb configuration"
+file = "../config/vieb/viebrc"
+winpath = "Roaming/Vieb/viebrc"
+unixpath = "Vieb/viebrc"

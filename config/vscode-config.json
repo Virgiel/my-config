@@ -88,6 +88,12 @@
     },
     {
       "type": "command",
+      "name": "Open editor history",
+      "key": "i",
+      "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+      "type": "command",
       "name": "Toggle zen mode",
       "key": "z",
       "command": "workbench.action.toggleZenMode"
@@ -102,7 +108,6 @@
   "stylelint.packageManager": "pnpm",
   "python.languageServer": "Pylance",
   "prettier.singleQuote": true,
-  "prettier.proseWrap": "always",
   "prettier.arrowParens": "avoid",
   "material-icon-theme.saturation": 0.8,
   "material-icon-theme.hidesExplorerArrows": true,
@@ -125,7 +130,7 @@
   "git.enableSmartCommit": true,
   "git.autofetch": true,
   "files.autoSave": "afterDelay",
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": true,
   "explorer.openEditors.visible": 0,
   "explorer.incrementalNaming": "smart",
   "errorLens.margin": "1.5ch",
@@ -157,5 +162,12 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
-  }
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": []
 }
