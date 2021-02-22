@@ -1,4 +1,4 @@
-/**
+ /**
  * Executable installation tools
  * Download, decompress and install files to appropriate places in a cross-platform way
  */

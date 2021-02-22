@@ -1,3 +1,14 @@
+# My cross-platform configuration
+
+## What I use
+
+- Web-Browser: Vieb
+- Terminal: Alacritty
+- Shell: Nushell
+- Editor: VsCode/nvim (Onivim2?)
+- File explorer: lf
+- Other: spotify
+
 ## Why use Javascript for scripting
 
 ### Bash

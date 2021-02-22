@@ -41,7 +41,22 @@ if exists('g:vscode')
   nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
-  xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
+  
+  " Go to and peek
+  nnoremap <silent> gd :call VSCodeNotify('editor.action.peekDefinition')<CR>
+  xnoremap <silent> gd :call VSCodeNotify('editor.action.peekDefinition')<CR>
+  nnoremap <silent> gD :call VSCodeNotify('editor.action.revealDefinition')<CR>
+  xnoremap <silent> gD :call VSCodeNotify('editor.action.revealDefinition')<CR>
+  nnoremap <silent> gt :call VSCodeNotify('editor.action.peekTypeDefinition')<CR>
+  xnoremap <silent> gt :call VSCodeNotify('editor.action.peekTypeDefinition')<CR>
+  nnoremap <silent> gT :call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
+  xnoremap <silent> gT :call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
+  nnoremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
+  xnoremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
+  nnoremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
+  xnoremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
+  nnoremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
+  xnoremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
       
   " Connect which key extension
   nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>

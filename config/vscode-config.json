@@ -22,7 +22,6 @@
     "editorError.background": "#0000"
   },
   "workbench.activityBar.visible": true,
-  "window.zoomLevel": 0,
   "whichkey.sortOrder": "alphabetically",
   "whichkey.bindings": [
     {
@@ -30,13 +29,6 @@
       "name": "commands",
       "key": ";",
       "command": "workbench.action.showCommands"
-    },
-    {
-      "type": "command",
-      "name": "comment",
-      "key": "/",
-      "command": "vscode-neovim.send",
-      "args": "<C-/>"
     },
     {
       "type": "command",
@@ -54,7 +46,7 @@
       "type": "command",
       "name": "Focus file finder",
       "key": "f",
-      "command": "workbench.action.quickOpen"
+      "command": "workbench.action.quickOpenPreviousEditor"
     },
     {
       "type": "command",
@@ -67,6 +59,24 @@
       "name": "Focus terminal",
       "key": "$",
       "command": "workbench.action.terminal.focus"
+    },
+    {
+      "type": "command",
+      "name": "Focus breadcrumbs",
+      "key": "b",
+      "command": "breadcrumbs.focusAndSelect"
+    },
+    {
+      "type": "command",
+      "name": "Go to symbol",
+      "key": "o",
+      "command": "workbench.action.gotoSymbol"
+    },
+    {
+      "type": "command",
+      "name": "Go to symbol by name",
+      "key": "t",
+      "command": "workbench.action.gotoSymbol"
     },
     {
       "type": "command",
@@ -85,12 +95,6 @@
       "name": "Close all editor groups",
       "key": "X",
       "command": "workbench.action.closeAllGroups"
-    },
-    {
-      "type": "command",
-      "name": "Open editor history",
-      "key": "i",
-      "command": "workbench.action.openPreviousEditorFromHistory"
     },
     {
       "type": "command",
@@ -169,5 +173,5 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": []
+  "workbench.editorAssociations": [],
 }
