@@ -70,7 +70,7 @@
       "type": "command",
       "name": "Go to symbol",
       "key": "o",
-      "command": "workbench.action.gotoSymbol"
+      "command": "workbench.action.showAllSymbols"
     },
     {
       "type": "command",
@@ -165,7 +165,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -173,5 +173,5 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": [],
+  "workbench.editorAssociations": []
 }

@@ -9,30 +9,41 @@ go = [
     "github.com/doronbehar/pistol@latest",
 ]
 
-[[install.copy]]
-url = "https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13.exe"
+[[install.github]]
+repo = "pbatard/rufus"
+pattern = "rufus-[0-9.]*exe$"
+action = "copy"
 name = "rufus.exe"
 
-[[install.copy]]
-url = "https://github.com/alacritty/alacritty/releases/download/v0.7.0/Alacritty-v0.7.0-portable.exe"
+[[install.github]]
+repo = "alacritty/alacritty"
+pattern = "portable.exe"
+action = "copy"
 name = "alacritty.exe"
 
-[[install.unzip]]
-url = "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip"
+[[install.github]]
+repo = "neovim/neovim"
+tag = "nightly"
+pattern = "nvim-win64.zip"
+action = "unzip"
 root = "nvim"
 
-[[install.unzip]]
-url = "https://sqlite.org/2020/sqlite-tools-win32-x86-3340000.zip"
-flatten = true
-
-[[install.unzip]]
-url = "https://nmap.org/dist/nmap-7.91-win32.zip"
-root = "nmap"
-
-[[install.unzip]]
-url = "https://github.com/Genymobile/scrcpy/releases/download/v1.17/scrcpy-win64-v1.17.zip"
+[[install.github]]
+repo = "Genymobile/scrcpy"
+pattern = "win64"
+action = "unzip"
 root = "scrcpy"
 
+[[install.url]]
+url = "https://sqlite.org/2020/sqlite-tools-win32-x86-3340000.zip"
+action = "unzip"
+flatten = true
+
+[[install.url]]
+url = "https://nmap.org/dist/nmap-7.91-win32.zip"
+action = "unzip"
+root = "nmap"
+
 [install.cargo]
-crate = ["nu", "bottom", "hyperfine"]
+crate = ["bottom", "hyperfine"]
 git = ["https://github.com/virgiel/ss", "https://github.com/Kethku/neovide"]

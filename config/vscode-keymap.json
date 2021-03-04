@@ -68,6 +68,11 @@
   },
   {
     "key": "l",
+    "command": "list.expand",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+l",
     "command": "list.select",
     "when": "listFocus && !inputFocus"
   },
@@ -184,18 +189,24 @@
     "when": "inQuickOpen"
   },
   /* ----- Terminal Navigation ----- */
-  /*{
-      "key": "escape",
-      "command": "workbench.action.terminal.toggleTerminal",
-      "when": "terminalFocus"
-    },*/
   {
-    "key": "ctrl+$",
-    "command": "workbench.panel.terminal.focus"
+    "key": "ctrl+oem_1",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
   },
   {
-    "key": "ctrl+k",
-    "command": "workbench.action.focusActiveEditorGroup",
+    "key": "alt+oem_1",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.terminal.focusPreviousPane",
     "when": "terminalFocus"
   },
   /* ----- Other ----- */
@@ -208,5 +219,5 @@
     "key": "alt+r",
     "command": "editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-  },
+  }
 ]

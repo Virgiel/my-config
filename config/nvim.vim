@@ -67,11 +67,13 @@ else
   Plug 'sainnhe/gruvbox-material' " My favorite theme
   Plug 'itchyny/lightline.vim'    " Light status line
   Plug 'roman/golden-ratio'       " Automatic resizing based on the golden ratio
-  Plug 'rbgrouleff/bclose.vim'    " Needed for lf.vim to work
+  Plug 'voldikss/vim-floaterm'    " Needed for lf.vim to work
   Plug 'ptzz/lf.vim'              " Use lf as a file manager
   Plug 'junegunn/goyo.vim'        " Zen mode
   Plug 'junegunn/fzf'             " Add fzf
   Plug 'junegunn/fzf.vim'         " Add default fzf commands
+  Plug 'neovim/nvim-lspconfig'    " LSP support
+  Plug 'hrsh7th/nvim-compe'       " Autocompletion
   call plug#end()
 
   " ----- Gruvbox Material Theme ----- "
@@ -96,7 +98,53 @@ else
   " Don't work for WTF reasons
   let g:goyo_height = '95%'
   let g:goyo_width = '120'
+  
+  " ----- Nvim LSP client ----- "
+  
+lua << EOF
+  require'lspconfig'.rust_analyzer.setup{}
+EOF
+  nnoremap <silent> gh :lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> <M-r> :lua vim.lsp.buf.rename()<CR> 
+  nnoremap <silent> gD :lua vim.lsp.buf.declaration()<CR>
+  nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> gt :lua vim.lsp.buf.type_definition()<CR>
+  nnoremap <silent> gi :lua vim.lsp.buf.implementation()<CR>
+  nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
 
+  " ----- Compe ----- "
+  let g:compe = {}
+  let g:compe.enabled = v:true
+  let g:compe.autocomplete = v:true
+  let g:compe.debug = v:false
+  let g:compe.min_length = 1
+  let g:compe.preselect = 'enable'
+  let g:compe.throttle_time = 80
+  let g:compe.source_timeout = 200
+  let g:compe.incomplete_delay = 400
+  let g:compe.max_abbr_width = 100
+  let g:compe.max_kind_width = 100
+  let g:compe.max_menu_width = 100
+  let g:compe.documentation = v:true
+
+  let g:compe.source = {}
+  let g:compe.source.path = v:true
+  let g:compe.source.buffer = v:true
+  let g:compe.source.calc = v:true
+  let g:compe.source.vsnip = v:true
+  let g:compe.source.nvim_lsp = v:true
+  let g:compe.source.nvim_lua = v:true
+  let g:compe.source.spell = v:true
+  let g:compe.source.tags = v:true
+  let g:compe.source.snippets_nvim = v:true
+  let g:compe.source.treesitter = v:true
+  let g:compe.source.omni = v:true
+
+  inoremap <silent><expr> <C-Space> compe#complete()
+  inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+  inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
   " ----- Custom Shortcut -----"
   let mapleader = ","
 
