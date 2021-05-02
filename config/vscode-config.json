@@ -21,7 +21,6 @@
     "editorInfo.background": "#0000",
     "editorError.background": "#0000"
   },
-  "workbench.activityBar.visible": true,
   "whichkey.sortOrder": "alphabetically",
   "whichkey.bindings": [
     {
@@ -87,13 +86,13 @@
     {
       "type": "command",
       "name": "Close editor group",
-      "key": "x",
+      "key": "d",
       "command": "workbench.action.closeEditorsInGroup"
     },
     {
       "type": "command",
       "name": "Close all editor groups",
-      "key": "X",
+      "key": "D",
       "command": "workbench.action.closeAllGroups"
     },
     {
@@ -173,5 +172,8 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": []
+  "workbench.editorAssociations": [],
+  "workbench.productIconTheme": "fluent-icons",
+  "prettier.proseWrap": "always",
+  "terminal.integrated.shell.windows": "nu.exe"
 }

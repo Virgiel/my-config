@@ -190,23 +190,48 @@
   },
   /* ----- Terminal Navigation ----- */
   {
-    "key": "ctrl+oem_1",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
-  },
-  {
     "key": "alt+oem_1",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+tab",
-    "command": "workbench.action.terminal.focusNextPane",
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+shift+tab",
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.terminal.scrollUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.terminal.scrollDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+h",
     "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.terminal.focusNextPane",
     "when": "terminalFocus"
   },
   /* ----- Other ----- */
