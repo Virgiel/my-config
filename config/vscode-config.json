@@ -31,21 +31,15 @@
     },
     {
       "type": "command",
-      "name": "Focus file explorer",
-      "key": "e",
-      "command": "workbench.view.explorer"
-    },
-    {
-      "type": "command",
-      "name": "Split Horizontal",
-      "key": "h",
-      "command": "workbench.action.splitEditorDown"
-    },
-    {
-      "type": "command",
-      "name": "Focus file finder",
+      "name": "File finder",
       "key": "f",
       "command": "workbench.action.quickOpenPreviousEditor"
+    },
+    {
+      "type": "command",
+      "name": "File explorer",
+      "key": "F",
+      "command": "workbench.view.explorer"
     },
     {
       "type": "command",
@@ -55,33 +49,57 @@
     },
     {
       "type": "command",
-      "name": "Focus terminal",
+      "name": "Open terminal",
       "key": "$",
-      "command": "workbench.action.terminal.focus"
+      "command": "terminal.focus"
     },
     {
       "type": "command",
-      "name": "Focus breadcrumbs",
+      "name": "Create terminal",
+      "key": "£",
+      "command": "workbench.action.terminal.new"
+    },
+    {
+      "type": "command",
+      "name": "Open breadcrumbs",
       "key": "b",
       "command": "breadcrumbs.focusAndSelect"
     },
     {
       "type": "command",
-      "name": "Go to symbol",
-      "key": "o",
+      "name": "Go to symbol in editor",
+      "key": "s",
+      "command": "workbench.action.gotoSymbol"
+    },
+    {
+      "type": "command",
+      "name": "Go to symbol in workspace",
+      "key": "S",
       "command": "workbench.action.showAllSymbols"
     },
     {
       "type": "command",
-      "name": "Go to symbol by name",
-      "key": "t",
-      "command": "workbench.action.gotoSymbol"
+      "name": "Next error",
+      "key": "e",
+      "command": "editor.action.marker.nextInFiles"
+    },
+    {
+      "type": "command",
+      "name": "Next error",
+      "key": "E",
+      "command": "editor.action.marker.prevInFiles"
     },
     {
       "type": "command",
       "name": "Split Vertical",
       "key": "v",
       "command": "workbench.action.splitEditor"
+    },
+    {
+      "type": "command",
+      "name": "Split Horizontal",
+      "key": "h",
+      "command": "workbench.action.splitEditorDown"
     },
     {
       "type": "command",
@@ -102,7 +120,7 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\antoi\\tools\\nvim\\bin\\nvim.exe",
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\antoi\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontFamily": "Fira Code",
@@ -120,7 +138,7 @@
   "java.refactor.renameFromFileExplorer": "autoApply",
   "java.configuration.checkProjectSettingsExclusions": false,
   "i18n-ally.displayLanguage": "fr",
-  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkZpcmEgQ29kZVwiLFwidXJsXCI6XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9RmlyYStDb2RlXCJ9XSxcImxpYnJhcmllc1wiOlwiZ2VuZXJhbFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiNkM4RUJGXCIsXCJENzlCMDBcIixcIjk5OTk5OVwiLFwiQjNCM0IzXCIsXCI0RDRENERcIixcIjY2NjY2NlwiLFwiMzMzMzMzXCIsXCI4MkIzNjZcIixcIjJBMkEyQVwiLFwiRkVGRUZFXCIsXCJmNWY1ZjVcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkZpcmEgQ29kZVwiLFwidXJsXCI6XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9RmlyYStDb2RlXCJ9XSxcImxpYnJhcmllc1wiOlwiZ2VuZXJhbFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiRkVGRUZFXCIsXCI2QzhFQkZcIixcIkQ3OUIwMFwiLFwiOTk5OTk5XCIsXCJCM0IzQjNcIixcIjRENEQ0RFwiLFwiNjY2NjY2XCIsXCIzMzMzMzNcIixcIjgyQjM2NlwiLFwiMkEyQTJBXCIsXCJmNWY1ZjVcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
   "hediet.vscode-drawio.customFonts": ["Fira Code"],
   "hediet.vscode-drawio.codeLinkActivated": false,
   "gruvboxMaterial.lightContrast": "hard",
@@ -128,7 +146,6 @@
   "gruvboxMaterial.darkWorkbench": "flat",
   "gruvboxMaterial.darkCursor": "orange",
   "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.colorfulSyntax": true,
   "grammarly.autoActivate": false,
   "git.enableSmartCommit": true,
   "git.autofetch": true,
@@ -149,11 +166,18 @@
   "editor.fontLigatures": true,
   "editor.fontFamily": "Fira Code",
   "editor.accessibilitySupport": "off",
-  "diffEditor.ignoreTrimWhitespace": false,
   "clangd.path": "c:\\Users\\antoi\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\10.0.0\\clangd_10.0.0\\bin\\clangd.exe",
   "clangd.onConfigChanged": "restart",
-  "cSpell.language": "fr,fr-FR,en-US",
-  "cSpell.enableFiletypes": ["pseudocode", "svelte", "toml", "vue"],
+  "cSpell.language": "fr,fr-FR,en-US,en-GB",
+  "cSpell.enableFiletypes": [
+    "git-rebase",
+    "makefile",
+    "pseudocode",
+    "shellscript",
+    "svelte",
+    "toml",
+    "vue"
+  ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -170,10 +194,48 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": [],
+  "[latex]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
+  },
   "workbench.productIconTheme": "fluent-icons",
   "prettier.proseWrap": "always",
-  "terminal.integrated.shell.windows": "nu.exe"
+  "terminal.integrated.profiles.windows": {
+    "nu": {
+      "path": "nu.exe",
+      "args": [""]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "nu",
+  "cSpell.userWords": ["depolymerizer", "eytzingerize"],
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "gruvboxMaterial.colorfulSyntax": true,
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.confirmOnKill": "always",
+  "workbench.editor.experimentalAutoLockGroups": {
+    "terminalEditor": false
+  },
+  "svelte.ask-to-enable-ts-plugin": false,
+  "remote.SSH.remotePlatform": {
+    "51.159.120.92": "macOS",
+    "firefly.gnunet.org": "linux",
+    "taler.net": "linux"
+  },
+  "latex-workshop.view.pdf.viewer": "tab"
 }

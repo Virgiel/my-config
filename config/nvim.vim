@@ -23,10 +23,10 @@ set autoindent   " TODO
 set smartindent  " TODO
 
 " ----- Common shortcut ----- "
-nnoremap H ^     " Move to the start of line
-nnoremap L $     " Move to the end of line 
-nnoremap K H     " Move to first line of screen 
-nnoremap U <C-r> " Redo
+noremap <silent> H ^     " Move to the start of line
+noremap <silent> L $     " Move to the end of line 
+noremap K H     " Move to first line of screen 
+noremap U <C-r> " Redo
 
 if has('win32')
   set shell=cmd.exe "Prevent weird path handling bugs
@@ -34,33 +34,28 @@ endif
 
 if exists('g:vscode')
   " Editor Navigation
-  nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
-  xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
-  nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
-  xnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
-  nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-  xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-  nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
+  noremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
+  noremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
+  noremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+  noremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
+  
+  " Editor Group Movement
+  noremap <silent> <C-A-j> :call VSCodeNotify('workbench.action.moveActiveEditorGroupDown')<CR>
+  noremap <silent> <C-A-k> :call VSCodeNotify('workbench.action.moveActiveEditorGroupUp')<CR> 
+  noremap <silent> <C-A-h> :call VSCodeNotify('workbench.action.moveActiveEditorGroupLeft')<CR>
+  noremap <silent> <C-A-l> :call VSCodeNotify('workbench.action.moveActiveEditorGroupRight')<CR>
   
   " Go to and peek
-  nnoremap <silent> gd :call VSCodeNotify('editor.action.peekDefinition')<CR>
-  xnoremap <silent> gd :call VSCodeNotify('editor.action.peekDefinition')<CR>
-  nnoremap <silent> gD :call VSCodeNotify('editor.action.revealDefinition')<CR>
-  xnoremap <silent> gD :call VSCodeNotify('editor.action.revealDefinition')<CR>
-  nnoremap <silent> gt :call VSCodeNotify('editor.action.peekTypeDefinition')<CR>
-  xnoremap <silent> gt :call VSCodeNotify('editor.action.peekTypeDefinition')<CR>
-  nnoremap <silent> gT :call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
-  xnoremap <silent> gT :call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
-  nnoremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
-  xnoremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
-  nnoremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
-  xnoremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
-  nnoremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
-  xnoremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
+  noremap <silent> gd :call VSCodeNotify('editor.action.peekDefinition')<CR>
+  noremap <silent> gD :call VSCodeNotify('editor.action.revealDefinition')<CR>
+  noremap <silent> gt :call VSCodeNotify('editor.action.peekTypeDefinition')<CR>
+  noremap <silent> gT :call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
+  noremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
+  noremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
+  noremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
       
   " Connect which key extension
-  nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
-  xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+  noremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 else 
   " ----- Start of plugin managment ----- "
   call plug#begin() 

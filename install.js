@@ -3,21 +3,8 @@
  * Download, decompress and install files to appropriate places in a cross-platform way
  */
 
-import { ensureDir } from 'https://deno.land/std@0.89.0/fs/ensure_dir.ts';
-import { basename, join } from 'https://deno.land/std@0.89.0/path/mod.ts';
-import { parse } from 'https://deno.land/std@0.89.0/encoding/toml.ts';
-import * as color from 'https://deno.land/std@0.89.0/fmt/colors.ts';
-import JSZip from 'https://jspm.dev/jszip@3.6.0';
-// Get os specific properties
-const { os } = Deno.build;
-let home; // Which dir to write to
-if (os === 'windows') {
-  home = 'C:/Users/antoi';
-} else if (os === 'linux') {
-  home = Deno.env.get('HOME');
-} else {
-  throw `Unsupported os ${os}`;
-}
+import { parse } from 'https://deno.land/std@0.100.0/encoding/toml.ts';
+import * as color from 'https://deno.land/std@0.100.0/fmt/colors.ts';
 
 // Parse config files
 
@@ -33,49 +20,20 @@ const config = parse(Deno.readTextFileSync(configFile));
 println(color.bold(color.blue(`Start installing ${config.title}`)));
 
 if (config.install) {
-  // Prepare dest dir
-  const path = join(home, config.install.dir);
-  await ensureDir(path);
-
-  // Handle github repos
-  for (const item of config.install.github ?? []) {
-    try {
-      print(color.magenta(`Github repo ${item.repo} - `));
-      // Fetch last release metadata
-      const result = await fetch(
-        `https://api.github.com/repos/${item.repo}/releases/${
-          item.tag ? `tags/${item.tag}` : 'latest'
-        }`
-      );
-      const json = await result.json();
-      if (result.status != 200) {
-        throw json.message;
+  if (config.install.scoop) {
+    if (await check('scoop status')) {
+      for (const item of config.install.scoop) {
+        try {
+          println(color.magenta(`Install scoop ${item} >`));
+          await exec(`scoop install ${item}`);
+        } catch (error) {
+          println(color.red(error));
+        }
       }
-
-      // Find the matching asset
-      const pat = new RegExp(item.pattern ?? '.*');
-      const match = json.assets.filter(asset => pat.test(asset.name));
-      if (match.length == 0) {
-        throw `Found no assets matching ${pat}`;
-      } else if (match.length > 1) {
-        throw `Found many assets matching ${pat}: ${match.map(it => it.name)}`;
-      }
-
-      await handleUrl(item, match[0].browser_download_url, path);
-    } catch (error) {
-      println(color.red(`ERR\n${error}`));
+    } else {
+      println(color.red('Can not execute scoop command'));
     }
   }
-
-  // Handle raw url
-  for (const item of config.install.url ?? []) {
-    try {
-      await handleUrl(item, item.url, path);
-    } catch (error) {
-      println(color.red(`ERR\n${error}`));
-    }
-  }
-
   if (config.install.go) {
     if (await check('go version')) {
       for (const url of config.install.go ?? []) {
@@ -114,10 +72,6 @@ if (config.install) {
   }
 }
 
-async function fetchAsArray(url) {
-  return new Uint8Array(await (await fetch(url)).arrayBuffer());
-}
-
 function fileName(url) {
   return url.substring(url.lastIndexOf('/') + 1);
 }
@@ -131,65 +85,24 @@ async function print(msg) {
 }
 
 async function exec(cmd) {
-  const p = Deno.run({ cmd: cmd.split(' ') });
-  return (await p.status()).success;
-}
-
-async function check(cmd) {
-  const p = Deno.run({
-    cmd: cmd.split(' '),
-    stderr: 'null',
-    stdin: 'null',
-    stdout: 'null',
-  });
-  return (await p.status()).success;
-}
-
-/** Apply action from item to url */
-async function handleUrl(item, url, path) {
-  if (item.action == 'copy') {
-    // Copy the file
-    const name = item.name ?? fileName(url);
-    print(color.magenta(`Copy file ${name} - `));
-    await copy(url, name, path);
-    println(color.green(`OK`));
-  } else if (item.action == 'unzip') {
-    // Unzip archive
-    print(color.magenta(`Unzip ${fileName(url)} - `));
-    await unzip(url, item.root ?? null, item.flatten ?? false, path);
-    println(color.green(`OK`));
-  } else {
-    throw `Unknown action ${item.action}`;
+  try {
+    const p = Deno.run({ cmd: cmd.split(' ') });
+    return (await p.status()).success;
+  } catch (e) {
+    return false;
   }
 }
 
-/** Copy a file fetched from url to dist */
-async function copy(url, name, dist) {
-  const content = await fetchAsArray(url);
-  await Deno.writeFile(join(dist, name), content);
-}
-
-/** Unzip files fetched from url to dist */
-async function unzip(url, root, flatten, dist) {
-  const zipper = new JSZip();
-  const zip = await fetchAsArray(url);
-  await zipper.loadAsync(zip);
-  for (const f of Object.values(zipper.files)) {
-    if (flatten) {
-      // Remove dir hierarchy
-      f.name = basename(f.name);
-    } else if (root) {
-      // Replace root folder
-      f.name = join(root, f.name.substring(f.name.indexOf('/') + 1));
-    }
-    const path = join(dist, f.name);
-    if (!f.dir) {
-      // Write file
-      const content = await f.async('uint8array');
-      await Deno.writeFile(path, content);
-    } else if (!flatten) {
-      // Write dir only if not flatten
-      await ensureDir(path);
-    }
+async function check(cmd) {
+  try {
+    const p = Deno.run({
+      cmd: cmd.split(' '),
+      stderr: 'null',
+      stdin: 'null',
+      stdout: 'null',
+    });
+    return (await p.status()).success;
+  } catch (e) {
+    return false;
   }
 }

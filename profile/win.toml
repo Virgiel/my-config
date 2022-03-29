@@ -2,42 +2,8 @@ title = "windows 10 configuration"
 import = ["term.toml", "vscode.toml", "desktop.toml"]
 
 [install]
-dir = "tools"
-go = [
-    "github.com/gokcehan/lf@latest",
-    "github.com/junegunn/fzf@latest",
-    "github.com/doronbehar/pistol@latest",
-]
-
-[[install.github]]
-repo = "pbatard/rufus"
-pattern = "rufus-[0-9.]*exe$"
-action = "copy"
-name = "rufus.exe"
-
-[[install.github]]
-repo = "alacritty/alacritty"
-pattern = "portable.exe"
-action = "copy"
-name = "alacritty.exe"
-
-[[install.github]]
-repo = "neovim/neovim"
-tag = "nightly"
-pattern = "nvim-win64.zip"
-action = "unzip"
-root = "nvim"
-
-[[install.github]]
-repo = "Genymobile/scrcpy"
-pattern = "win64"
-action = "unzip"
-root = "scrcpy"
-
-[[install.url]]
-url = "https://sqlite.org/2020/sqlite-tools-win32-x86-3340000.zip"
-action = "unzip"
-flatten = true
+scoop = ["rufus", "alacritty", "neovim", "scrcpy", "sqlite", "lf", "fzf", "deno"]
+go = ["github.com/doronbehar/pistol@latest"]
 
 [[install.url]]
 url = "https://nmap.org/dist/nmap-7.91-win32.zip"
