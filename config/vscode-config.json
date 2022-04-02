@@ -202,13 +202,15 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80
   },
-  "workbench.productIconTheme": "fluent-icons",
   "prettier.proseWrap": "always",
   "terminal.integrated.profiles.windows": {
     "nu": {
       "path": "nu.exe",
       "args": [""]
     }
+  },
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
   },
   "terminal.integrated.defaultProfile.windows": "nu",
   "cSpell.userWords": ["depolymerizer", "eytzingerize"],
@@ -237,5 +239,6 @@
     "firefly.gnunet.org": "linux",
     "taler.net": "linux"
   },
-  "latex-workshop.view.pdf.viewer": "tab"
+  "latex-workshop.view.pdf.viewer": "tab",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim"
 }

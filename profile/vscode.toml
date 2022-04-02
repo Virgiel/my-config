@@ -5,10 +5,13 @@ title = "Editor configuration"
 file = "../config/vscode-config.json"
 winpath = "Roaming/Code/User/settings.json"
 unixpath = "Code/User/settings.json"
+darwinpath = "Code/User/settings.json"
+
 
 [[config]]
 title = "Shortcut configuration"
 file = "../config/vscode-keymap.json"
 winpath = "Roaming/Code/User/keybindings.json"
 unixpath = "Code/User/keybindings.json"
+darwinpath = "Code/User/keybindings.json"
 

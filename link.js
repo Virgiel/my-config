@@ -3,10 +3,10 @@
  * Write config files to appropriate places in a cross-platform way
  */
 
-import { parse } from "https://deno.land/std@0.82.0/encoding/toml.ts";
-import { dirname, join } from "https://deno.land/std@0.82.0/path/mod.ts";
-import * as color from "https://deno.land/std@0.82.0/fmt/colors.ts";
-import { ensureLinkSync } from "https://deno.land/std@0.82.0/fs/mod.ts";
+import { parse } from "https://deno.land/std@0.133.0/encoding/toml.ts";
+import { dirname, join } from "https://deno.land/std@0.133.0/path/mod.ts";
+import * as color from "https://deno.land/std@0.133.0/fmt/colors.ts";
+import { ensureLinkSync } from "https://deno.land/std@0.133.0/fs/mod.ts";
 
 // Get os specific properties
 const { os } = Deno.build;
@@ -18,6 +18,9 @@ if (os === "windows") {
 } else if (os === "linux") {
   osPath = "unixpath";
   destDir = join(Deno.env.get("HOME"), ".config");
+}  else if (os === "darwin") {
+  osPath = "darwinpath";
+  destDir = join(Deno.env.get("HOME"), "Library/Application Support");
 } else {
   throw `Unsupported os ${os}`;
 }
@@ -43,7 +46,6 @@ for (const path of config.import ?? []) {
 }
 
 for (const item of config.config ?? []) {
-  console.log(color.magenta(`Link ${item.title}`));
   let srcPath = "";
   if (item.file) {
     srcPath = join(configDir, item.file);
@@ -51,9 +53,14 @@ for (const item of config.config ?? []) {
     throw `Not file for "${item.title}"`;
   }
 
-  const toPath = item[osPath];
-  const destPath = join(destDir, toPath);
-  ensureLinkSync(srcPath, destPath);
+  const toPath = item[osPath]; 
+  if (toPath) {
+    const destPath = join(destDir, toPath);
+    ensureLinkSync(srcPath, destPath);
+    console.log(color.magenta(`Link ${item.title}`));
+  } else {
+    console.log(color.yellow(`Skip ${item.title}`));
+  }
 }
 
 for (const script of config.script ?? []) {

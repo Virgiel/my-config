@@ -232,7 +232,7 @@
   {
     "key": "space",
     "command": "whichkey.show",
-    "when": "!inputFocus"
+    "when": "!inputFocus",
   },
   {
     "key": "alt+r",
