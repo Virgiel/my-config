@@ -1,0 +1,39 @@
+add_newline = false
+
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$memory_usage\
+$battery\
+$character"""
+
+[directory]
+style = "blue"
+
+[git_branch]
+symbol = ""
+format = "[$branch]($style)"
+style = "bright-black"
+ignore_branches = ["master", "main"]
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[character]
+success_symbol = "[\\$](white)"
+error_symbol = "[\\$](red)"
+vicmd_symbol = "[\\$](green)"

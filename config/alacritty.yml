@@ -1,5 +1,5 @@
 #shell:
- # program: nu
+# program: nu
 
 font:
   normal:
@@ -38,3 +38,7 @@ cursor:
 
 key_bindings:
   - { key: Space, mods: Alt, action: ToggleViMode }
+  - { key: V, mods: Command, action: Paste }
+  - { key: C, mods: Command, action: Copy }
+  - { key: Key3, mods: Alt, chars: '#' }
+  - { key: Key0, mods: Alt, chars: '@' }

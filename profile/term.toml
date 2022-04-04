@@ -26,6 +26,11 @@ file = "../config/fig-gruvbox-material.json"
 darwinpath = "../../.fig/themes/gruvbox-material.json"
 
 [[config]]
+title = "Starship prompt"
+file = "../config/starship.toml"
+darwinpath = "../../.config/starship.toml"
+
+[[config]]
 title = "Nu shell"
 file = "../config/nu.toml"
 winpath = "Roaming/nushell/nu/config/config.toml"
