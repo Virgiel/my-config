@@ -8,6 +8,7 @@ set cc=80        " Set a 80 columb border for good coding style
 set showcmd      " Show when leader key is pressed
 set wildmenu     " Add command completion 
 set clipboard+=unnamedplus " Always us the system clipboad
+set laststatus=3 " Unified status line
 
 " ----- Better search ----- "
 set hlsearch     " Highlight all search match
@@ -34,15 +35,15 @@ endif
 
 if exists('g:vscode')
   " Editor Navigation
+  noremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   noremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
   noremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR> 
-  noremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
   noremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
   
   " Editor Group Movement
+  noremap <silent> <C-A-h> :call VSCodeNotify('workbench.action.moveActiveEditorGroupLeft')<CR>
   noremap <silent> <C-A-j> :call VSCodeNotify('workbench.action.moveActiveEditorGroupDown')<CR>
   noremap <silent> <C-A-k> :call VSCodeNotify('workbench.action.moveActiveEditorGroupUp')<CR> 
-  noremap <silent> <C-A-h> :call VSCodeNotify('workbench.action.moveActiveEditorGroupLeft')<CR>
   noremap <silent> <C-A-l> :call VSCodeNotify('workbench.action.moveActiveEditorGroupRight')<CR>
   
   " Go to and peek
@@ -53,7 +54,9 @@ if exists('g:vscode')
   noremap <silent> gi :call VSCodeNotify('editor.action.peekImplementation')<CR>
   noremap <silent> gI :call VSCodeNotify('editor.action.goToImplementation')<CR>
   noremap <silent> gr :call VSCodeNotify('editor.action.goToReferences')<CR>
-      
+  noremap <silent> gR :call VSCodeNotify('editor.action.goToReferences')<CR>
+  noremap <silent> gc :call VSCodeNotify('editor.action.dirtydiff.next')<CR>
+
   " Connect which key extension
   noremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 else 
@@ -62,8 +65,6 @@ else
   Plug 'sainnhe/gruvbox-material' " My favorite theme
   Plug 'itchyny/lightline.vim'    " Light status line
   Plug 'roman/golden-ratio'       " Automatic resizing based on the golden ratio
-  Plug 'voldikss/vim-floaterm'    " Needed for lf.vim to work
-  Plug 'ptzz/lf.vim'              " Use lf as a file manager
   Plug 'junegunn/goyo.vim'        " Zen mode
   Plug 'junegunn/fzf'             " Add fzf
   Plug 'junegunn/fzf.vim'         " Add default fzf commands

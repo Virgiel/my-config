@@ -118,6 +118,12 @@
       "name": "Toggle zen mode",
       "key": "z",
       "command": "workbench.action.toggleZenMode"
+    },
+    {
+      "type": "command",
+      "key": "c",
+      "name": "Display change",
+      "command": "git.openChange"
     }
   ],
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\antoi\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",

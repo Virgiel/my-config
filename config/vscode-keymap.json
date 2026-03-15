@@ -32,13 +32,23 @@
   },
   {
     "key": "alt+enter",
-    "command": "keyboard-quickfix.openQuickFix",
+    "command": "editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
   {
     "key": "alt+enter",
-    "command": "keyboard-quickfix.openQuickFix",
+    "command": "editor.action.quickFix",
     "when": "problemFocus"
+  },
+  {
+    "key": "tab",
+    "command": "selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "shift+tab",
+    "command": "selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
   },
   /* ----- List Navigation ----- */
   {
@@ -224,6 +234,53 @@
     "command": "workbench.action.terminal.scrollDown",
     "when": "terminalFocus"
   },
+  /* ----- Hover Navigation ----- */
+  {
+    "key": "enter",
+    "command": "editor.action.showHover",
+    "when": "editorHoverVisible"
+  },
+  {
+    "key": "g g",
+    "command": "editor.action.goToTopHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "shift+g",
+    "command": "editor.action.goToBottomHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "h",
+    "command": "editor.action.scrollLeftHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "l",
+    "command": "editor.action.scrollRightHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "editor.action.pageUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.pageUpHover",
+    "when": "editorHoverFocused"
+  },
+
   /* ----- Other ----- */
   {
     "key": "ctrl+,",
@@ -232,7 +289,7 @@
   {
     "key": "space",
     "command": "whichkey.show",
-    "when": "!inputFocus",
+    "when": "!inputFocus"
   },
   {
     "key": "alt+r",
@@ -300,5 +357,25 @@
     "key": "ctrl+shift+oem_3",
     "command": "-workbench.action.terminal.new",
     "when": "terminalProcessSupported"
+  },
+  {
+    "key": "cmd+down",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "cmd+up",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
   }
 ]

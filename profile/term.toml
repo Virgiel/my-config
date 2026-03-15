@@ -1,29 +1,11 @@
 title = "Terminal configuration"
 
 [[config]]
-title = "LF file manager"
-file = "../config/lf.config"
-winpath = "Local/lf/lfrc"
-unixpath = "lf/lfrc"
-
-[[config]]
 title = "NeoVim text editor"
 file = "../config/nvim.vim"
 winpath = "Local/nvim/init.vim"
 unixpath = "nvim/init.vim"
 darwinpath = "../../.config/nvim/init.vim"
-
-[[config]]
-title = "Alacritty terminal emulator"
-file = "../config/alacritty.yml"
-winpath = "Roaming/alacritty/alacritty.yml"
-unixpath = "alacritty.yml"
-darwinpath = "../../.config/alacritty/alacritty.yml"
-
-[[config]]
-title = "Fig theme"
-file = "../config/fig-gruvbox-material.json"
-darwinpath = "../../.fig/themes/gruvbox-material.json"
 
 [[config]]
 title = "Starship prompt"
@@ -35,9 +17,3 @@ title = "Nu shell"
 file = "../config/nu.toml"
 winpath = "Roaming/nushell/nu/config/config.toml"
 unixpath = "nu/config.toml"
-
-[[config]]
-title = "Bat cat with syntax highlighting"
-file = "../config/bat.config"
-winpath = "Roaming/bat/config"
-unixpath = "bat/config"
