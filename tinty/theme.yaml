@@ -1,0 +1,37 @@
+system: base24
+name: Custom Gruvbox Material Dark Hard
+slug: custom
+author: me
+variant: dark
+palette:
+  # Primary Accents
+  base08: "#ea6962" # Red (Variables, XML Tags)
+  base09: "#e78a4e" # Orange (Integers, Boolean, Constants)
+  base0A: "#d8a657" # Yellow (Classes, Markup Bold)
+  base0B: "#a9b665" # Green (Strings, Inherited Class)
+  base0C: "#89b482" # Cyan (Support, Regular Expressions)
+  base0D: "#7daea3" # Blue (Functions, Methods, Attribute IDs)
+  base0E: "#d3869b" # Magenta/Purple (Keywords, Storage, Selector)
+  base0F: "#bd6f3e" # Brown (Deprecated, Opening/Closing Embedded)
+
+  # Secondary Accents (Base24 Additions - Dim/Darker Variants)
+  base12: "#ef7e77" # Bright Red
+  base13: "#e1b26a" # Bright Yellow
+  base14: "#b8c573" # Bright Green
+  base15: "#96c28e" # Bright Cyan
+  base16: "#8ebaa4" # Bright Blue
+  base17: "#df97ac" # Bright Magenta
+
+  base10: "#070808" # Secondary Background
+  base11: "#131414" # Tertiary Background
+  base00: "#202020" # Default Background
+  base01: "#32302f" # Lighter Background (status bars)
+  base02: "#46403d" # Selection Background
+
+
+  # Foregrounds (The Linen Tiers)
+  base03: "#8c8275" # Comments / Invisibles (Muted Taupe)
+  base04: "#a89d8f" # Dark Foreground (Warm Stone)
+  base05: "#e2cca9" # Default Foreground (Pale Champagne)
+  base06: "#ede0cd" # Light Foreground (Soft Cream)
+  base07: "#f5ede0" # Lightest Foreground (Off-White Linen)
