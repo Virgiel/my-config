@@ -1,8 +1,7 @@
 // Backgrounds
-const bg0 = "#131414";
-const bg1 = "#202020";
-const bg3 = "#32302f";
-const bg5 = "#46403d";
+const bg0 = "#121212";
+const bg1 = "#161616";
+const bg3 = "#202020";
 
 // Foregrounds
 const fg0 = "#e2cca9";
@@ -28,33 +27,37 @@ const findHighlightBg = "#5a4728";
 
 const accent = orange;
 const debug = "#F00FFF";
+const none = "#00000000";
 
 const a = (hex, pct) =>
-  `${hex}${
-    Math.round((pct / 100) * 255)
-      .toString(16)
-      .padStart(2, "0")
+  `${hex}${Math.round((pct / 100) * 255)
+    .toString(16)
+    .padStart(2, "0")
   }`;
 
 const style = {
   // ───────────────── Surface ─────────────────
-  "background": bg0,
+  "background": bg1,
   "background.appearance": "opaque",
-  "surface.background": bg0,
+  "surface.background": bg1,
   "panel.background": bg0,
 
   "title_bar.background": bg0,
   "status_bar.background": bg0,
+  "tab_bar.background": bg0,
 
+  "border": bg3,
+  
   // ───────────────── Text ─────────────────
   "text": fg0,
   "text.muted": grey2,
   "text.placeholder": grey1,
   "text.disabled": grey0,
-  "text.accent": accent,
+  "text.accent": a(accent, 80),
 
   // ───────────────── Editor ─────────────────
   "editor.background": bg1,
+  "editor.foreground": fg0,
   "editor.gutter.background": bg1,
   "editor.subheader.background": bg0,
 
@@ -75,7 +78,7 @@ const style = {
 
   "editor.selection.background": a(bg3, 82),
   "editor.active_selection.background": a(bg3, 96),
-  "editor.selection.border": "#00000000",
+  "editor.selection.border": none,
 
   // ───────────────── Word Highlight ─────────────────
   "editor.document_highlight.read_background": a(currentWordBg, 85),
@@ -92,13 +95,17 @@ const style = {
 
   // ───────────────── Status ─────────────────
   "hint": grey1,
-  "hint.background": a(grey1, 10),
+  "hint.background": a(grey1, 14),
+  "hint.border": none,
   "info": aqua,
-  "info.background": a(aqua, 10),
+  "info.background": a(aqua, 14),
+  "info.border": none,
   "warning": yellow,
-  "warning.background": a(yellow, 10),
+  "warning.background": a(yellow, 14),
+  "warning.border": none,
   "error": red,
-  "error.background": a(red, 10),
+  "error.background": a(red, 14),
+  "error.border": none,
   "created": green,
   "modified": blue,
   "deleted": red,
@@ -108,11 +115,11 @@ const style = {
   "predictive": grey1,
 
   // ───────────────── Scrollbar ─────────────────
-  "scrollbar.thumb.background": a(bg5, 50),
-  "scrollbar.thumb.hover_background": bg5,
-  "scrollbar.thumb.border": a(bg5, 55),
-  "scrollbar.track.background": "#00000000",
-  "scrollbar.track.border": "#00000000",
+  "scrollbar.thumb.background": a(bg3, 50),
+  "scrollbar.thumb.hover_background": bg3,
+  "scrollbar.thumb.border": a(bg3, 55),
+  "scrollbar.track.background": none,
+  "scrollbar.track.border": none,
 
   // ───────────────── Autocomplete ─────────────────
   "editor.autocomplete.background": bg1,
@@ -125,14 +132,32 @@ const style = {
   // ───────────────── Terminal ─────────────────
   "terminal.background": bg1,
   "terminal.foreground": fg0,
-  "terminal.ansi.black": bg3,
-  "terminal.ansi.red": red,
-  "terminal.ansi.green": green,
-  "terminal.ansi.yellow": yellow,
-  "terminal.ansi.blue": blue,
-  "terminal.ansi.magenta": purple,
-  "terminal.ansi.cyan": aqua,
+  "terminal.bright_foreground": fg1,
+  "terminal.dim_foreground": grey2,
+  "terminal.ansi.black": bg1,
+  "terminal.ansi.bright_black": bg1,
+  "terminal.ansi.dim_black": a(bg1, 90),
   "terminal.ansi.white": fg0,
+  "terminal.ansi.bright_white": fg1,
+  "terminal.ansi.dim_white": fg1,
+  "terminal.ansi.red": red,
+  "terminal.ansi.bright_red": red,
+  "terminal.ansi.dim_red": a(red, 90),
+  "terminal.ansi.green": green,
+  "terminal.ansi.bright_green": green,
+  "terminal.ansi.dim_green": a(green, 90),
+  "terminal.ansi.yellow": yellow,
+  "terminal.ansi.bright_yellow": yellow,
+  "terminal.ansi.dim_yellow": a(yellow, 90),
+  "terminal.ansi.blue": blue,
+  "terminal.ansi.bright_blue": blue,
+  "terminal.ansi.dim_blue": a(blue, 90),
+  "terminal.ansi.magenta": purple,
+  "terminal.ansi.bright_magenta": purple,
+  "terminal.ansi.dim_magenta": a(purple, 90),
+  "terminal.ansi.cyan": aqua,
+  "terminal.ansi.bright_cyan": aqua,
+  "terminal.ansi.dim_cyan": a(aqua, 90),
 
   // ───────────────── Misc ─────────────────
   "link_text.hover": blue,
@@ -141,6 +166,8 @@ const style = {
   "players": [
     {
       "cursor": accent,
+      "background": accent,
+      "selection": a(accent, 10),
     },
   ],
 
@@ -149,8 +176,12 @@ const style = {
     // Core structure
     "comment": { color: grey1, font_style: "italic" },
     "comment.doc": { color: grey2, font_style: "italic" },
+    "tag.doctype": { color: grey2 },
     "punctuation": { color: grey2 },
     "punctuation.bracket": { color: grey1 },
+    "punctuation.delimiter": { color: grey2 },
+    "punctuation.list_marker": { color: grey2 },
+    "punctuation.special": { color: grey2 },
 
     // Language keywords
     "keyword": { color: orange, font_style: "italic" },
@@ -159,19 +190,21 @@ const style = {
     // Identifiers
     "property": { color: fg0 },
     "variable": { color: fg0 },
+    "constant": { color: fg0 },
+    "constant.builtin": { color: fg0 },
 
     // Functions
     "function": { color: aqua },
 
     // Types
     "type": { color: yellow },
+    "enum": { color: yellow },
+    "tag": { color: yellow },
 
     // Literals
     "string": { color: green },
-    "string.escape": { color: debug },
-    "string.regex": { color: debug },
+    "string.escape": { color: yellow },
     "string.special": { color: green, font_style: "italic" },
-    "string.special.symbol": { color: debug },
 
     // Metadata / secondary constructs
     "attribute": { color: purple },
@@ -192,6 +225,9 @@ const style = {
     "number": { color: purple },
     "preproc": { color: debug },
     "primary": { color: debug },
+    "text.literal": { color: debug },
+    "title": { color: debug },
+    "variant": { color: debug },
   },
 };
 
