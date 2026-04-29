@@ -1,5 +1,6 @@
 import { dirname, fromFileUrl } from "jsr:@std/path";
 import * as ini from "jsr:@std/ini";
+import * as toml from "jsr:@std/toml";
 
 const SCRIPT_DIR = dirname(fromFileUrl(import.meta.url));
 const HOME = Deno.env.get("HOME");
@@ -51,10 +52,9 @@ const debug = "#F00FFF";
 const none = "#00000000";
 
 const a = (hex, pct) =>
-  `${hex}${
-    Math.round((pct / 100) * 255)
-      .toString(16)
-      .padStart(2, "0")
+  `${hex}${Math.round((pct / 100) * 255)
+    .toString(16)
+    .padStart(2, "0")
   }`;
 
 const accents = [
@@ -524,6 +524,44 @@ selection-foreground = ${fg0}
   `;
 }
 
+function rio_theme() {
+  return {
+    colors: {
+      background: bg1,
+      foreground: fg0,
+      
+      cursor: accent,
+
+      black: fg0,
+      blue: blue,
+      cyan: aqua,
+      green: green,
+      magenta: purple,
+      red: red,
+      white: fg0,
+      yellow: yellow,
+
+      "dim-black": fg0,
+      "dim-blue": darkBlue,
+      "dim-cyan": darkAqua,
+      "dim-green": darkGreen,
+      "dim-magenta": darkPurple,
+      "dim-red": darkRed,
+      "dim-white": fg0,
+      "dim-yellow": darkYellow,
+      
+      "light-black": fg0,
+      "light-blue": brightBlue,
+      "light-cyan": brightAqua,
+      "light-green": brightGreen,
+      "light-magenta": brightPurple,
+      "light-red": brightRed,
+      "light-white": fg0,
+      "light-yellow": brightYellow,
+    }
+  }
+}
+
 function symlink(target, link) {
   const realTarget = Deno.realPathSync(target);
 
@@ -580,4 +618,12 @@ Deno.writeTextFileSync(`${SCRIPT_DIR}/ghostly.conf`, ghostly);
 symlink(
   `${SCRIPT_DIR}/ghostly.conf`,
   `${HOME}/.config/ghostty/themes/virgiel-theme.conf`,
+);
+
+// Install rio theme
+const rio = rio_theme();
+Deno.writeTextFileSync(`${SCRIPT_DIR}/rio.toml`, toml.stringify(rio));
+symlink(
+  `${SCRIPT_DIR}/rio.toml`,
+  `${HOME}/.config/rio/themes/virgiel.toml`,
 );

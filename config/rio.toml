@@ -1,0 +1,15 @@
+theme = "virgiel"
+
+[editor]
+program = "zed"
+
+[cursor]
+shape = 'block'
+blinking = true
+
+[fonts]
+family = "FiraCode Nerd Font"
+
+#[shell]
+#program = "/opt/homebrew/bin/brush"
+#args = ["-i", "--noediting"]
