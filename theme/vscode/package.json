@@ -1,0 +1,24 @@
+{
+    "name": "virgiel-material-theme",
+    "displayName": "Virgiel Material Theme",
+    "description": "My custom themes based on gruvbox material",
+    "author": "virgiel",
+    "publisher": "virgiel",
+    "license": "MIT",
+    "categories": [
+        "Themes"
+    ],
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "*"
+    },
+    "contributes": {
+        "themes": [
+            {
+                "label": "Virgiel Material",
+                "uiTheme": "vs-dark",
+                "path": "./theme.json"
+            }
+        ]
+    }
+}

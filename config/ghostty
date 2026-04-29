@@ -1,5 +1,4 @@
 font-family = "FiraCode Nerd Font"
-theme = tinted-theming.conf
+theme = virgiel-theme.conf
 shell-integration-features = ssh-terminfo
 palette-generate = true
-background = #131414
