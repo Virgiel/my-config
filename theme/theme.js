@@ -49,12 +49,13 @@ const findHighlightBg = "#5a4728";
 
 const accent = orange;
 const debug = "#F00FFF";
-const none = "#00000000";
+const transparent = "#00000000";
 
 const a = (hex, pct) =>
-  `${hex}${Math.round((pct / 100) * 255)
-    .toString(16)
-    .padStart(2, "0")
+  `${hex}${
+    Math.round((pct / 100) * 255)
+      .toString(16)
+      .padStart(2, "0")
   }`;
 
 const accents = [
@@ -75,19 +76,46 @@ function zed_theme() {
     "background.appearance": "opaque",
     "surface.background": bg1,
     "panel.background": bg0,
-
+    "elevated_surface.background": bg0,
     "title_bar.background": bg0,
     "status_bar.background": bg0,
+    "toolbar.background": bg0,
     "tab_bar.background": bg0,
+    "tab.inactive_background": bg0,
+    "tab.active_background": bg1,
+
+    "element.background": bg0,
+    "element.hover": bg1,
+    "element.active": bg3,
+    "element.selected": bg3,
+    "element.disabled": bg1,
+
+    "ghost_element.background": transparent,
+    "ghost_element.hover": bg1,
+    "ghost_element.active": bg3,
+    "ghost_element.selected": bg3,
+    "ghost_element.disabled": bg1,
 
     "border": bg3,
+    "border.variant": bg1,
+    "border.selected": a(accent, 80),
+    "border.transparent": transparent,
+    "border.disabled": bg1,
+    "panel.focused_border": accent,
+    "pane.focused_border": accent,
 
     // ───────────────── Text ─────────────────
     "text": fg0,
     "text.muted": grey2,
     "text.placeholder": grey1,
     "text.disabled": grey0,
-    "text.accent": a(accent, 80),
+    "text.accent": accent,
+
+    "icon": fg0,
+    "icon.muted": grey2,
+    "icon.placeholder": grey1,
+    "icon.disabled": grey0,
+    "icon.accent": a(accent, 80),
 
     // ───────────────── Editor ─────────────────
     "editor.background": bg1,
@@ -112,7 +140,7 @@ function zed_theme() {
 
     "editor.selection.background": a(bg3, 82),
     "editor.active_selection.background": a(bg3, 96),
-    "editor.selection.border": none,
+    "editor.selection.border": transparent,
 
     // ───────────────── Word Highlight ─────────────────
     "editor.document_highlight.read_background": a(currentWordBg, 85),
@@ -127,33 +155,64 @@ function zed_theme() {
     "editor.active_find_match.background": a(accent, 54),
     "editor.active_find_match.border": yellow,
 
+    "version_control.added": green,
+    "version_control.modified": yellow,
+    "version_control.word_added": darkGreen,
+    "version_control.word_deleted": darkRed,
+    "version_control.deleted": red,
+    "version_control.conflict_marker.ours": a(green, 14),
+    "version_control.conflict_marker.theirs": a(blue, 14),
+
     // ───────────────── Status ─────────────────
-    "hint": grey1,
-    "hint.background": a(grey1, 14),
-    "hint.border": none,
-    "info": aqua,
-    "info.background": a(aqua, 14),
-    "info.border": none,
-    "warning": yellow,
-    "warning.background": a(yellow, 14),
-    "warning.border": none,
+    "conflict": purple,
+    "conflict.background": a(purple, 14),
+    "conflict.border": transparent,
+    "created": green,
+    "created.background": a(green, 14),
+    "created.border": transparent,
+    "deleted": red,
+    "deleted.background": a(red, 14),
+    "deleted.border": transparent,
     "error": red,
     "error.background": a(red, 14),
-    "error.border": none,
-    "created": green,
-    "modified": blue,
-    "deleted": red,
-    "renamed": purple,
-    "conflict": orange,
+    "error.border": transparent,
+    "hidden": grey0,
+    "hidden.background": a(grey0, 25),
+    "hidden.border": transparent,
+    "hint": blue,
+    "hint.background": a(blue, 25),
+    "hint.border": transparent,
     "ignored": grey0,
+    "ignored.background": a(grey0, 14),
+    "ignored.border": transparent,
+    "info": aqua,
+    "info.background": a(aqua, 14),
+    "info.border": transparent,
+    "modified": yellow,
+    "modified.background": a(yellow, 14),
+    "modified.border": transparent,
     "predictive": grey1,
+    "predictive.background": a(grey1, 14),
+    "predictive.border": transparent,
+    "renamed": blue,
+    "renamed.background": a(blue, 14),
+    "renamed.border": transparent,
+    "success": green,
+    "success.background": a(green, 14),
+    "success.border": transparent,
+    "unreachable": grey1,
+    "unreachable.background": a(grey1, 14),
+    "unreachable.border": transparent,
+    "warning": yellow,
+    "warning.background": a(yellow, 14),
+    "warning.border": transparent,
 
     // ───────────────── Scrollbar ─────────────────
     "scrollbar.thumb.background": a(bg3, 50),
     "scrollbar.thumb.hover_background": bg3,
     "scrollbar.thumb.border": a(bg3, 55),
-    "scrollbar.track.background": none,
-    "scrollbar.track.border": none,
+    "scrollbar.track.background": transparent,
+    "scrollbar.track.border": transparent,
 
     // ───────────────── Autocomplete ─────────────────
     "editor.autocomplete.background": bg1,
@@ -197,13 +256,13 @@ function zed_theme() {
     "link_text.hover": blue,
 
     // ----------------- Players --------------
-    "players": [
-      {
-        "cursor": accent,
-        "background": accent,
-        "selection": a(accent, 10),
-      },
-    ],
+    "players": accents.map((c) => {
+      return {
+        "cursor": c,
+        "background": c,
+        "selection": a(c, 10),
+      };
+    }),
 
     // ───────────────── Syntax ─────────────────
     syntax: {
@@ -222,6 +281,7 @@ function zed_theme() {
       "keyword": { color: orange, font_style: "italic" },
       "keyword.unsafe": { color: red },
       "operator": { color: orange },
+      "lifetime": { color: orange },
 
       // Identifiers
       "property": { color: fg0 },
@@ -252,6 +312,9 @@ function zed_theme() {
       // Reduced importance
       "hint": { color: a(grey1, 50) },
       "predictive": { color: grey1 },
+
+      "diff.plus": { color: green },
+      "diff.minus": { color: red },
 
       // WIP
       "embedded": { color: debug },
@@ -529,7 +592,7 @@ function rio_theme() {
     colors: {
       background: bg1,
       foreground: fg0,
-      
+
       cursor: accent,
 
       black: fg0,
@@ -549,7 +612,7 @@ function rio_theme() {
       "dim-red": darkRed,
       "dim-white": fg0,
       "dim-yellow": darkYellow,
-      
+
       "light-black": fg0,
       "light-blue": brightBlue,
       "light-cyan": brightAqua,
@@ -558,8 +621,8 @@ function rio_theme() {
       "light-red": brightRed,
       "light-white": fg0,
       "light-yellow": brightYellow,
-    }
-  }
+    },
+  };
 }
 
 function symlink(target, link) {
