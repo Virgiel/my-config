@@ -42,6 +42,25 @@ const darkPurple = "#ab6c7d";
 const grey0 = "#7c6f64";
 const grey1 = "#928374";
 const grey2 = "#a89984";
+/* \ 'bg_dim':           ['#141617',   '232'],
+            \ 'bg0':              ['#1d2021',   '234'],
+            \ 'bg1':              ['#282828',   '235'],
+            \ 'bg2':              ['#282828',   '235'],
+            \ 'bg3':              ['#3c3836',   '237'],
+            \ 'bg4':              ['#3c3836',   '237'],
+            \ 'bg5':              ['#504945',   '239'],
+            \ 'bg_statusline1':   ['#282828',   '235'],
+            \ 'bg_statusline2':   ['#32302f',   '235'],
+            \ 'bg_statusline3':   ['#504945',   '239'],
+            \ 'bg_visual_red':    ['#442e2d',   '52'],
+            \ 'bg_visual_yellow': ['#473c29',   '94'],
+            \ 'bg_visual_green':  ['#333e34',   '22'],
+            \ 'bg_visual_blue':   ['#2e3b3b',   '17'],
+            \ 'bg_visual_purple': ['#3c333b',   '54'],
+            \ 'bg_diff_red':      ['#3c1f1e',   '52'],
+            \ 'bg_diff_green':    ['#32361a',   '22'],
+            \ 'bg_diff_blue':     ['#0d3138',   '17'],
+            \ 'bg_current_word':  ['#32302f',   '236']*/
 
 // Highlights
 const currentWordBg = "#32302f";
@@ -157,15 +176,15 @@ function zed_theme() {
 
     "version_control.added": green,
     "version_control.modified": yellow,
-    "version_control.word_added": darkGreen,
-    "version_control.word_deleted": darkRed,
+    "version_control.word_added": a(darkGreen, 30),
+    "version_control.word_deleted": a(darkRed, 30),
     "version_control.deleted": red,
     "version_control.conflict_marker.ours": a(green, 14),
     "version_control.conflict_marker.theirs": a(blue, 14),
 
     // ───────────────── Status ─────────────────
-    "conflict": purple,
-    "conflict.background": a(purple, 14),
+    "conflict": yellow,
+    "conflict.background": a(yellow, 14),
     "conflict.border": transparent,
     "created": green,
     "created.background": a(green, 14),
@@ -226,13 +245,10 @@ function zed_theme() {
     "terminal.background": bg1,
     "terminal.foreground": fg0,
     "terminal.bright_foreground": fg1,
-    "terminal.dim_foreground": grey2,
+    "terminal.dim_foreground": fg0,
     "terminal.ansi.black": bg1,
     "terminal.ansi.bright_black": bg1,
-    "terminal.ansi.dim_black": a(bg1, 90),
-    "terminal.ansi.white": fg0,
-    "terminal.ansi.bright_white": fg1,
-    "terminal.ansi.dim_white": fg1,
+    "terminal.ansi.dim_black": bg0,
     "terminal.ansi.red": red,
     "terminal.ansi.bright_red": brightRed,
     "terminal.ansi.dim_red": darkRed,
@@ -251,6 +267,9 @@ function zed_theme() {
     "terminal.ansi.cyan": aqua,
     "terminal.ansi.bright_cyan": brightAqua,
     "terminal.ansi.dim_cyan": darkAqua,
+    "terminal.ansi.white": fg0,
+    "terminal.ansi.bright_white": fg0,
+    "terminal.ansi.dim_white": fg0,
 
     // ───────────────── Misc ─────────────────
     "link_text.hover": blue,
@@ -303,11 +322,13 @@ function zed_theme() {
       "string": { color: green },
       "string.escape": { color: yellow },
       "string.special": { color: green, font_style: "italic" },
+      "text.literal": { color: green },
 
       // Metadata / secondary constructs
       "attribute": { color: purple },
       "boolean": { color: purple },
       "variable.special": { color: purple },
+      "number": { color: purple },
 
       // Reduced importance
       "hint": { color: a(grey1, 50) },
@@ -316,18 +337,17 @@ function zed_theme() {
       "diff.plus": { color: green },
       "diff.minus": { color: red },
 
+      // Markdown
+      "title": { color: orange, font_weight: 700 },
+      "link_uri": { color: green },
+      "link_text": { color: yellow },
+      "emphasis": { color: fg0, font_weight: 700 },
+      "emphasis.strong": { color: fg0, font_weight: 700 },
+
       // WIP
       "embedded": { color: debug },
-      "emphasis": { color: debug },
-      "emphasis.strong": { color: debug },
-
-      "link_text": { color: debug },
-      "link_uri": { color: debug },
-      "number": { color: purple },
       "preproc": { color: debug },
       "primary": { color: debug },
-      "text.literal": { color: debug },
-      "title": { color: debug },
     },
   };
 

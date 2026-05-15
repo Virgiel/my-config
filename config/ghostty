@@ -1,4 +1,9 @@
 font-family = "FiraCode Nerd Font"
+
 theme = virgiel-theme.conf
 shell-integration-features = ssh-terminfo
 palette-generate = true
+
+shell-integration-features = ssh-env,ssh-terminfo,title
+
+command = direct:/opt/homebrew/bin/brush
