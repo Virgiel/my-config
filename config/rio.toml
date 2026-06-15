@@ -10,6 +10,6 @@ blinking = true
 [fonts]
 family = "FiraCode Nerd Font"
 
-#[shell]
+[shell]
 #program = "/opt/homebrew/bin/brush"
 #args = ["-i", "--noediting"]
